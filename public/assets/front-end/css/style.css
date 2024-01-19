@@ -76,6 +76,11 @@ header{
     position: relative;
     margin-right: 50px;
 }
+@media (max-width: 991px) {
+    .menu-wrapper ul{
+        display: none !important;
+    }
+}
 .menu-wrapper ul {
     display: flex;
     position: relative;
