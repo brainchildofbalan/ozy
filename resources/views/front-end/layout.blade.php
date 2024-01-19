@@ -23,9 +23,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@1,400;1,600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('/assets/front-end/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/front-end/css/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/front-end/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/front-end/css/bootstrap.min.css') }}?v={{ env('CSS_VERSION') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/front-end/css/swiper-bundle.min.css') }}?v={{ env('CSS_VERSION') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/front-end/css/style.css') }}?v={{ env('CSS_VERSION') }}">
 </head>
 
 <body>
@@ -40,7 +40,55 @@
                 </div>
 
 
-                <div class="menu-wrapper ms-auto"></div>
+                <div class="menu-wrapper ms-auto">
+                    <ul>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/">About Us</a>
+                        </li>
+                        <li class="have-menu">
+                            <a href="/">Services</a>
+                            <div class="menu-child">
+                                <ul>
+
+                                    @isset($service_category)
+                                        <div>
+
+                                            @foreach ($service_category as $item)
+                                                <li><a href="/services/{{ $item->url }}">{{ $item->name }}</a></li>
+                                            @endforeach
+                                        </div>
+                                    @endisset
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="have-menu">
+                            <a href="/">Products</a>
+                            <div class="menu-child">
+                                <ul>
+
+                                    @isset($product_category)
+                                        <div>
+
+                                            @foreach ($product_category as $item)
+                                                <li><a href="/products/{{ $item->url }}">{{ $item->name }}</a></li>
+                                            @endforeach
+                                        </div>
+                                    @endisset
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/">Contact Us</a>
+                        </li>
+                    </ul>
+
+
+                </div>
                 <div class="cart-icon">
                     <span class="cart-icon-nums inc-num">1</span>
                     <a href="javasript:void(0)">
@@ -199,7 +247,7 @@
 
 </body>
 
-<script src="{{ asset('/assets/front-end/js/swiper-bundle.min.js') }}"></script>
-<script src="{{ asset('/assets/front-end/js/main.js') }}"></script>
+<script src="{{ asset('/assets/front-end/js/swiper-bundle.min.js') }}?v={{ env('CSS_VERSION') }}"></script>
+<script src="{{ asset('/assets/front-end/js/main.js') }}?v={{ env('CSS_VERSION') }}"></script>
 
 </html>

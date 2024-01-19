@@ -71,6 +71,115 @@ header{
 }
 
 
+.menu-wrapper{
+    width: auto;
+    position: relative;
+    margin-right: 50px;
+}
+.menu-wrapper ul {
+    display: flex;
+    position: relative;
+}
+.menu-wrapper ul li{
+    list-style: none;
+    padding: 0px 10px;
+    position: relative;
+}
+.menu-wrapper ul li a {
+    list-style: none;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+.menu-wrapper ul li.have-menu::after{
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    content: '';
+    position: absolute;
+    right: 10px;
+    transform: rotate(45deg);
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: .5;
+}
+
+.menu-wrapper ul li.have-menu a{
+    padding-right: 5px;
+    margin-right: 10px;
+}
+
+.menu-wrapper ul li .menu-child{
+    position: absolute;
+    left: 0;
+    top: 70%;
+    padding-top: 10px;
+    padding-top: 50px;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: .3s all ease-in-out;
+    
+}
+.menu-wrapper ul li.have-menu:hover .menu-child{
+    opacity: 1;
+    transform: translateY(0px);
+    pointer-events: all;
+}
+.menu-wrapper ul li .menu-child::after{
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #fff;
+    top: 45px;
+    left: 36px;
+}
+.menu-wrapper ul li .menu-child ul{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 10px 10px;
+    min-width: 250px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.menu-wrapper ul li .menu-child ul li{
+    width: 100%;
+}
+.menu-wrapper ul li .menu-child ul li a{
+    width: 100%;
+    position: relative;
+    display: block;
+    padding: 8px 0px;
+    border-bottom: 1px solid #eeeeee;
+}
+.menu-wrapper ul li .menu-child ul li:last-child a{
+    border-bottom: 0;
+}
+
+.menu-wrapper ul li .menu-child ul li a::after{
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    content: '';
+    position: absolute;
+    right: 0px;
+    transform: rotate(-45deg);
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: .2;
+}
+
 .logo-wrapper{
     width: 100px;
 }
@@ -157,7 +266,6 @@ header{
 .banner-main{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
     position: relative;
 }
 

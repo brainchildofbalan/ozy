@@ -155,6 +155,8 @@ return [
     |
     */
 
+    'css_version' => env('CSS_VERSION', '1.0'),
+
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
          * Package Service Providers...
@@ -168,6 +170,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
     ])->toArray(),
 
     /*
