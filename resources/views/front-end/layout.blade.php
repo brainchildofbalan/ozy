@@ -19,6 +19,7 @@
     <meta property="og:url" content="https://www.yourdomain.com/your-page">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="{{ asset('/assets/front-end/images/header/fav.png') }}" type="image/png">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@1,400;1,600&display=swap"
         rel="stylesheet">
