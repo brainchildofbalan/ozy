@@ -678,13 +678,13 @@ function openModelService() {
 
 
 
-    enq_btn.addEventListener('click', () => {
+    enq_btn?.addEventListener('click', () => {
         enq_inner.classList.add('active')
         enq_wrapper_overlay.classList.add('active')
     })
 
 
-    enq_wrapper_overlay.addEventListener('click', () => {
+    enq_wrapper_overlay?.addEventListener('click', () => {
         enq_inner.classList.remove('active')
         enq_wrapper_overlay.classList.remove('active')
     })
