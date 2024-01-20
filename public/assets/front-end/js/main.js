@@ -253,7 +253,42 @@ const clickOpenCheckoutCanvas = () => {
 
     offset_overlay.addEventListener('click', remove)
 
-    // offset_close.addEventListener('click', remove)
+    offset_close.addEventListener('click', remove)
+    return {
+        add,
+        remove
+    }
+}
+
+
+
+
+const clickOpenCheckoutMenuCanvas = () => {
+
+
+
+
+    const cart_icon = document.querySelector('.menu-mob-icon')
+    const offset_wrapper = document.querySelector('.menu-offset-wrapper')
+    const offset_overlay = document.querySelector('.menu-offset-overlay')
+    const offset_close = document.querySelector('.menu-offset-close')
+
+
+    const add = () => {
+        offset_wrapper.classList.add('active')
+        offset_overlay.classList.add('active')
+    }
+
+    const remove = () => {
+        offset_wrapper.classList.remove('active')
+        offset_overlay.classList.remove('active')
+    }
+
+    cart_icon.addEventListener('click', add)
+
+    offset_overlay.addEventListener('click', remove)
+
+    offset_close.addEventListener('click', remove)
     return {
         add,
         remove
@@ -701,6 +736,7 @@ function openModelService() {
 
 cartLoader();
 clickOpenCheckoutCanvas();
+clickOpenCheckoutMenuCanvas();
 redirectToHome();
 productSlider();
 openModelService();

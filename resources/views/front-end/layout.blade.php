@@ -224,6 +224,7 @@
     <div class="offset-wrapper">
         <div class="offset-title">
             <h3>Cart <span>(<span class="inc-num"></span>)</span></h3>
+            <button class="offset-close"></button>
         </div>
 
         <div class="offset-items">
@@ -237,6 +238,69 @@
         </div>
     </div>
     <div class="offset-overlay"></div>
+
+
+
+
+
+    <div class="menu-offset-wrapper">
+        <div class="menu-offset-title">
+            <h3>Menu</h3>
+            <button class="menu-offset-close"></button>
+        </div>
+
+        <div class="menu-offset-items">
+
+            <ul>
+                <li>
+                    <a href="/">Home <span class="arrow"></span></a>
+                </li>
+                <li>
+                    <a href="/">About us <span class="arrow"></span></a>
+                </li>
+                <li>
+                    <a href="/services">Services <span class="arrow"></span></a>
+                </li>
+
+                @isset($service_category)
+                    @foreach ($service_category as $item)
+                        <li class="menu"><a href="/services/{{ $item->url }}">{{ $item->name }} <span
+                                    class="arrow"></span></a></li>
+                    @endforeach
+                @endisset
+
+                <li>
+                    <a href="/products">Products <span class="arrow"></span></a>
+                </li>
+
+                @isset($product_category)
+                    @foreach ($product_category as $item)
+                        <li class="menu"><a href="/products/{{ $item->url }}">{{ $item->name }} <span
+                                    class="arrow"></span></a></li>
+                    @endforeach
+                @endisset
+
+                <li>
+                    <a href="/gallery">Gallery <span class="arrow"></span></a>
+                </li>
+
+                <li>
+                    <a href="/contact-us">Contact us <span class="arrow"></span></a>
+                </li>
+            </ul>
+
+        </div>
+
+
+
+    </div>
+    <div class="menu-offset-overlay"></div>
+
+
+
+
+
+
 
 
 
