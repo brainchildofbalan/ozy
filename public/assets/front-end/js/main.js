@@ -157,7 +157,7 @@ const cartLoader = () => {
             decrementButton.addEventListener("click", () => decrement(data.id));
 
             const deleteButton = document.createElement("button");
-            deleteButton.textContent = "delete";
+            deleteButton.textContent = "Remove";
             deleteButton.classList.add('main-cart-wrapper-del')
             deleteButton.addEventListener("click", () => deleteItem(data.id));
 
@@ -314,7 +314,7 @@ function validateForm() {
         const phoneRegex = /^(\+\d{1,2})?\d{10,}$/;
 
         if (mobileInput === '') {
-            document.getElementById('errorNumber').textContent = 'Please enter your name.';
+            document.getElementById('errorNumber').textContent = 'Please enter your number.';
             isValid = false;
         }
         if (!phoneRegex.test(mobileInput) && mobileInput !== '') {
@@ -418,7 +418,7 @@ function validateForm() {
 
 
         if (mailInput === '') {
-            document.getElementById('mailError').textContent = 'mailable time required.';
+            document.getElementById('mailError').textContent = 'Email id required.';
             isValid = false;
         }
 
