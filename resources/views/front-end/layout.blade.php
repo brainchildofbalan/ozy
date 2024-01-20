@@ -85,6 +85,9 @@
                         <li>
                             <a href="/">Contact Us</a>
                         </li>
+                        <li>
+                            <a href="/" class="gallery-btn">Gallery</a>
+                        </li>
                     </ul>
 
 
@@ -188,16 +191,24 @@
                             </h3>
                             <ul class="footer-social-media-links">
                                 <li>
-                                    <a href="/"></a>
+                                    <a href="/">
+                                        <img src="{{ asset('/assets/front-end/images/footer/facebook.svg') }}"
+                                            alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="/"></a>
+                                    <a href="/">
+                                        <img src="{{ asset('/assets/front-end/images/footer/instagram.svg') }}"
+                                            alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="/"></a>
+                                    <a href="/">
+                                        <img src="{{ asset('/assets/front-end/images/footer/twitter.svg') }}"
+                                            alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="/"></a>
+                                    <a href="/">
+                                        <img src="{{ asset('/assets/front-end/images/footer/youtube.svg') }}"
+                                            alt=""></a>
                                 </li>
                             </ul>
                         </div>
@@ -229,6 +240,13 @@
 
         <div class="offset-items">
             <div class="cart-main"></div>
+            <div class="cart-main-empty">
+                <div class="no-data-found">
+                    <span class="no-found-error-icon"></span>
+                    <h3 class="font-second"> Sorry!</h3>
+                    <p>Cart is empty</p>
+                </div>
+            </div>
         </div>
 
 

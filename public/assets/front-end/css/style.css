@@ -1310,11 +1310,26 @@ textarea.checkout-form-controls{
 .menu-offset-items ul li a:hover span{
     opacity: 1;
 }
+
+
+.menu-wrapper ul li a.gallery-btn{
+    background-color: #00476f;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: .3s all ease-in-out;
+}
+.menu-wrapper ul li a.gallery-btn:hover{
+    background-color: #000;
+}
+
+
 .offset-close,
 .menu-offset-close{
     width: 30px;
     height: 30px;
-    background-color: #e6e6e6;
+    background-color: #fff;
     border-radius: 50%;
     overflow: hidden;
     position: relative;
@@ -1325,7 +1340,7 @@ textarea.checkout-form-controls{
 }
 .offset-close::after,
 .menu-offset-close::after{
-    width: 14px;
+    width: 20px;
     height: 2px;
     background-color: #000;
     content: '';
@@ -1335,7 +1350,7 @@ textarea.checkout-form-controls{
 }
 .offset-close::before,
 .menu-offset-close::before{
-    width: 14px;
+    width: 20px;
     height: 2px;
     background-color: #000;
     content: '';
@@ -1358,6 +1373,13 @@ textarea.checkout-form-controls{
     }
 }
 
+.cart-main-empty{
+    display: none;
+}
+.offset-items .cart-main:empty + .cart-main-empty{
+    display: block;
+}
+
 /* .product-details-wrapper::after{
     content: '';
     position: absolute;
@@ -1368,6 +1390,8 @@ textarea.checkout-form-controls{
     height: 100%;
     background-color: #f2f2f2;
 } */
+
+
 
 .product-details-inner{
     display: flex;
@@ -2164,7 +2188,7 @@ span.error{
 
 .footer-social-media-links li{
     list-style: none;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 .footer-social-media-links li:last-child{
     margin-right: 0;
@@ -2176,7 +2200,6 @@ span.error{
     height: 30px;
     border-radius: 50%;
     overflow: hidden;
-    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;

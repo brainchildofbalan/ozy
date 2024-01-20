@@ -19,13 +19,16 @@ const sumNumber = (mainCart) => {
 
 function redirectToHome() {
     // check any length
+    const isCart = JSON.parse(localStorage.getItem('cart'));
+    const checkLength = JSON.parse(localStorage.getItem('cart')).length > 0;
 
-    const checkLength = JSON.parse(localStorage.getItem('cart').length > 0);
+    console.log(checkLength);
     if (!localStorage.getItem('cart')) {
         if (window.location.pathname.includes('checkout')) {
             window.location.href = '/';
         }
     }
+
 
 
     else {
