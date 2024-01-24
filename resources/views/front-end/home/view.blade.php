@@ -78,10 +78,10 @@
                                                     alt=""></span>
                                             <span>Add to cart</span>
                                         </button>
-                                        <a href="" class="whatsap-message">
+                                        {{-- <a href="" class="whatsap-message">
                                             <img src="{{ asset('/assets/front-end/images/products/whatsapp.svg') }}"
                                                 alt="">
-                                        </a>
+                                        </a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -341,10 +341,10 @@
                                                     alt=""></span>
                                             <span>Add to cart</span>
                                         </button>
-                                        <a href="" class="whatsap-message">
+                                        {{-- <a href="" class="whatsap-message">
                                             <img src="{{ asset('/assets/front-end/images/products/whatsapp.svg') }}"
                                                 alt="">
-                                        </a>
+                                        </a> --}}
                                     </div>
                                 </div>
                             </div>

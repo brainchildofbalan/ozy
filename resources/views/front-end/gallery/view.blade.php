@@ -2,36 +2,34 @@
 @section('title', 'Create new product')
 @section('content')
 
-    <section class="banner-section">
-        <div class="container">
-            <div class="banner-main">
 
+    <section class="gallery-wrapper">
 
-                @foreach ($categoriesMain as $category)
-                    <div class="banner-item">
-                        <div class="banner-image"></div>
-                        <div class="banner-text font-second"> {{ $category->title }}</div>
-                        {{-- url --}}
-                        <a href="/{{ $category->belongs_to }}/{{ $category->url }}" class="banner-link">
-                            <span class="arrow banner-arrow-icon"></span>
-                            {{ $category->title }}
-                        </a>
-                    </div>
-                @endforeach
-                <div class="banner-item">
-                    <div class="banner-image"></div>
-                    <div class="banner-text font-second"> Gallery</div>
-                    {{-- url --}}
-                    <a href="/gallery" class="banner-link">
-                        <span class="arrow banner-arrow-icon"></span>
-                        Gallery
-                    </a>
-                </div>
+        <div class="gallery-inner">
 
+            <div class="gallery-banner">
+                {{-- <img src="" alt=""> --}}
             </div>
+
+
+            <div class="gallery-category">
+
+                <div class="container">
+                    <div class="gallery-category-inner">
+                        <ul>
+                            @foreach ($mainCategory as $category)
+                                <li class="@if ($url === $category->url) active @endif">
+                                    <a href="/gallery/{{ $category->url }}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </section>
-
 
 
 
@@ -42,7 +40,7 @@
                 <div class="category-wrapper-main">
                     {{-- active --}}
                     <div class="category-item">
-                        <a href="/products/{{ $url }}"
+                        <a href="/gallery/{{ $url }}"
                             class="category-item-link @if ($sub_url === null) active @endif">
                             <img src="{{ asset('/assets/front-end/images/products/image-product.jpg') }}" alt="">
                             <p> All </p>
@@ -50,7 +48,7 @@
                     </div>
                     @foreach ($categories as $category)
                         <div class="category-item">
-                            <a href="/products/{{ $url }}/{{ $category->url }}"
+                            <a href="/gallery/{{ $url }}/{{ $category->url }}"
                                 class="category-item-link @if ($sub_url === $category->url) active @endif">
                                 <img src="{{ asset('/assets/front-end/images/products/image-product.jpg') }}"
                                     alt="">
@@ -63,8 +61,6 @@
         </section>
     @endif
     {{-- cartegory list end --}}
-
-
 
 
 
@@ -133,9 +129,6 @@
         </div>
     </section>
     {{-- product section end --}}
-
-
-
 
 
 @endsection

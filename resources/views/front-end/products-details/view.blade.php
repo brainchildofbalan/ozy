@@ -79,9 +79,9 @@
                             <span> <img src="{{ asset('/assets/front-end/images/header/cart.svg') }}" alt=""></span>
                             <span>Add to cart</span>
                         </button>
-                        <a href="" class="whatsap-message">
+                        {{-- <a href="" class="whatsap-message">
                             <img src="{{ asset('/assets/front-end/images/products/whatsapp.svg') }}" alt="">
-                        </a>
+                        </a> --}}
                     </div>
 
                     <div class="info-main">

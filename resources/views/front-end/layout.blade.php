@@ -86,7 +86,11 @@
                             <a href="/">Contact Us</a>
                         </li>
                         <li>
-                            <a href="/" class="gallery-btn">Gallery</a>
+                            <a href="/gallery" class="gallery-btn">
+                                <span>
+                                    Gallery
+                                </span>
+                            </a>
                         </li>
                     </ul>
 

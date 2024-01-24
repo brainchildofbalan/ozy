@@ -6,6 +6,7 @@ use App\Http\Controllers\FrontEndCartController;
 use App\Http\Controllers\FrontEndOrderController;
 use App\Http\Controllers\FrontEndProductController;
 use App\Http\Controllers\FrontEndServicesController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderController;
@@ -47,6 +48,13 @@ Route::get('/products/{url}/{sub_url}', [FrontEndProductController::class, 'SubC
 Route::get('/services', [FrontEndServicesController::class, 'index']);
 Route::get('/services/{url}', [FrontEndServicesController::class, 'category']);
 Route::get('/services/{url}/{services}', [FrontEndServicesController::class, 'fetchSingle']);
+
+//gallery
+Route::get('/gallery', [GalleryController::class, 'index']);
+Route::get('/gallery/{url}', [GalleryController::class, 'category']);
+Route::get('/gallery/{url}/{sub_url}', [GalleryController::class, 'SubCategory']);
+
+
 
 Route::post('/place-order', [FrontEndOrderController::class, 'saveOrder'])->name('products.saveOrder');
 
