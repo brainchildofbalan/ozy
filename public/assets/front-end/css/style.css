@@ -2063,6 +2063,10 @@ span.error{
 .gallery-wrapper{
     width: 100%;
     position: relative;
+    padding-bottom: 50px;
+}
+.gallery-wrapper + .category-wrapper{
+    padding-top: 0;
 }
 .gallery-inner{
     width: 100%;

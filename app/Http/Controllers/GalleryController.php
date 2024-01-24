@@ -16,9 +16,10 @@ class GalleryController extends Controller
         $url =  null;
 
         $sub_url = null;
+        $products = Products::all();
         $mainCategory = ProductCategory::all();
         // $categoriesMain = ProductCategory::all();
-        return view('front-end.gallery.view', compact('mainCategory', 'sub_url', 'url'));
+        return view('front-end.gallery.view', compact('mainCategory', 'sub_url', 'url', 'products'));
     }
 
 
