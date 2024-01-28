@@ -79,7 +79,7 @@
 
                                 <div class="checkout-form-group">
                                     <button type="submit" id="" class="checkout-form-btn"
-                                        onclick="validateForm()">Place order</button>
+                                        onclick="validateForm()">Request order info</button>
                                 </div>
                             </div>
                         </div>

@@ -143,7 +143,7 @@ const cartLoader = () => {
             contentElement.appendChild(qtyElement);
 
             const imgElement = document.createElement('img');
-            imgElement.src = `/storage/${data.images}`;
+            imgElement.src = `/storage/${data.images.split(', ')[0]}`;
             imgElement.alt = 'Image';
             imagesElement.appendChild(imgElement);
 
