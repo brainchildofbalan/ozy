@@ -138,14 +138,36 @@
 
 
 
-                                <div class="mb-0 d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary ms-auto">Create Product</button>
-                                </div>
+
+
+
                             </div>
 
                         </div>
 
+                        {{-- image --}}
+                        <div class="mb-3 row">
+                            <label for="html5-text-input" class="col-md-2 col-form-label">Image</label>
+                            <div class="col-md-10">
+                                <input class="form-control @error('image') is-invalid @enderror" type="file"
+                                    placeholder="Enter quantity" name="image" value="{{ old('image') }}">
+                                @error('image')
+                                    <span class="invalid-feedback">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
+                        <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }} Image"
+                            style="max-width: 100px;">
+
+
+                    </div>
+
+
+                    <div class="mb-0 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary ms-auto">Create Product</button>
                     </div>
 
 

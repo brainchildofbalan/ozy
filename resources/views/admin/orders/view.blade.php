@@ -23,6 +23,9 @@
                                 <td class=" text-black">
                                     <a class=" fw-bold" href="{{ route('orders.show', $order->id) }}"">
                                         {{ $order->firstName }}
+                                        @if ($order->pdf_link)
+                                            <a href="{{ $order->pdf_link }}" class="invoiceView">View Invoice</a>
+                                        @endif
                                     </a>
                                 </td>
                                 <td>

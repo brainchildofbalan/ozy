@@ -9,7 +9,9 @@
 
                 @foreach ($categoriesMain as $category)
                     <div class="banner-item">
-                        <div class="banner-image"></div>
+                        <div class="banner-image">
+                            <img src="{{ Storage::url($category->image) }}" alt="">
+                        </div>
                         <div class="banner-text font-second"> {{ $category->title }}</div>
                         {{-- url --}}
                         <a href="/{{ $category->belongs_to }}/{{ $category->url }}" class="banner-link">

@@ -44,6 +44,7 @@ class MenuController extends Controller
             'title' => 'required|string|max:255',
             'category_id' => 'required',
             'belongs_to' => 'required',
+            'image' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
 
         ], [
             'title.required' => 'The title field is required.',
@@ -51,6 +52,8 @@ class MenuController extends Controller
             'title.max' => 'The title may not be greater than :max characters.',
             'category_id.required' => 'The category ID field is required.',
             'belongs_to.required' => 'The belongs to field is required.',
+            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif.',
+            'image.max' => 'The image may not be greater than 2048 kilobytes.',
 
         ]);
 
@@ -62,6 +65,11 @@ class MenuController extends Controller
         $data['order'] = Menu::count() + 1;
         $data['sub_categories'] = 'empty now';
         $data['url'] = $arrayFromInput[2];
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('menu_images', 'public');
+            $data['image'] = $imagePath;
+        }
 
         Menu::create($data);
         return redirect()->route('menus.index')->with('success', 'Category created successfully');
@@ -92,6 +100,7 @@ class MenuController extends Controller
             'title' => 'required|string|max:255',
             'category_id' => 'required',
             'belongs_to' => 'required',
+            'image' => 'mimes:jpeg,png,jpg,gif|max:2048',
 
         ], [
             'title.required' => 'The title field is required.',
@@ -99,7 +108,9 @@ class MenuController extends Controller
             'title.max' => 'The title may not be greater than :max characters.',
             'category_id.required' => 'The category ID field is required.',
             'belongs_to.required' => 'The belongs to field is required.',
-
+            'image.required' => 'The image file is required.',
+            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif.',
+            'image.max' => 'The image may not be greater than 2048 kilobytes.',
         ]);
 
         // string to array
@@ -109,6 +120,18 @@ class MenuController extends Controller
         //order number and subcategory
         $data['sub_categories'] = 'empty now';
         $data['url'] = $arrayFromInput[2];
+
+        // Handle image upload if needed
+        if ($request->hasFile('image')) {
+            // Delete the existing image if it exists
+            if ($category->image) {
+                Storage::disk('public')->delete($category->image);
+            }
+
+            // Upload the new image
+            $imagePath = $request->file('image')->store('menu_images', 'public');
+            $data['image'] = $imagePath;
+        }
 
         // Update the category in the database
         $category->update($data);
