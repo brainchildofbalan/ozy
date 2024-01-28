@@ -62,17 +62,18 @@
                             <div class="mb-3 row">
                                 <label for="html5-text-input" class="col-md-2 col-form-label d-flex align-items-center">
                                     <span style="position: relative;">
-                                        <img src="{{ Storage::url($object->images) }}"
+                                        <img src="{{ Storage::url(explode(', ', $object->images)[0]) }}"
                                             style="width: 40px; height: 40px; object-fit: cover; margin: 5px; border: 1px solid #dedede; padding: 10px;">
                                         <span
                                             style="position: absolute; left: 8px; top: 8px; background-color: #fff; width: 10px; height: 10px; font-size: 10px; display: flex; justify-content: center; align-items: center; color: #000">{{ $object->qty }}</span>
                                     </span>
                                     <span class="ps-1">{{ $object->name }}</span>
+                                    {{ $object->price }}
                                 </label>
                                 <div class="col-md-10 d-flex align-items-center flex-column justify-content-center">
                                     <input class="form-control @error('name' . $object->id) is-invalid @enderror"
                                         type="text" placeholder="Enter Price" name="name{{ $object->id }}"
-                                        value="{{ old('name' . $object->id, $object->price) }}">
+                                        value="{{ old('name' . $object->id, $object->price || 0) }}">
                                     @error('name' . $object->id)
                                         <span class="invalid-feedback">
                                             {{ $message }}

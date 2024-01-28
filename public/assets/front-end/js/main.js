@@ -51,7 +51,6 @@ const displayProducts = (data) => {
         qty: 1,
         name: data.name,
         images: data.images,
-        price: data.price,
     }
 
     var cartExist = JSON.parse(localStorage.getItem('cart'));

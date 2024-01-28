@@ -37,7 +37,7 @@
                                         @if ($arrayOfObjects !== null)
                                             @foreach ($arrayOfObjects as $object)
                                                 <span style="position: relative;">
-                                                    <img src="{{ Storage::url($object->images) }}"
+                                                    <img src="{{ Storage::url(explode(', ', $object->images)[0]) }}"
                                                         style="width: 50px; height: 50px; object-fit: cover; margin: 5px; border: 1px solid #dedede; padding: 10px;">
                                                     <span
                                                         style="position: absolute; left: 8px; top: 8px; background-color: #fff; width: 10px; height: 10px; font-size: 10px; display: flex; justify-content: center; align-items: center; color: #000">{{ $object->qty }}</span>
