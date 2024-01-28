@@ -130,7 +130,7 @@ header{
     left: 0;
     top: 100%;
     padding-top: 10px;
-    padding-top: 50px;
+    padding-top: 30px;
     opacity: 0;
     transform: translateY(-20px);
     pointer-events: none;
@@ -150,7 +150,7 @@ header{
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 5px solid #fff;
-    top: 45px;
+    top: 25px;
     left: 36px;
 }
 .menu-wrapper ul li .menu-child ul{
@@ -2151,7 +2151,61 @@ span.error{
 }
 
 
+.social-media-icons{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: rgba(255, 255, 255, .9);
+    padding: 15px 10px 15px 10px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid #f3f6f8;
+    
+}
+.social-media-icons ul{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.social-media-icons ul li{
+    margin-bottom: 15px;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 4px;
+}
+.social-media-icons ul li:last-child{
+    margin-bottom: 0;
+}
 
+.social-media-icons ul li a{
+    text-decoration: none;
+    color: transparent;
+    font-size: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: .3s all ease-in-out;
+}
+.social-media-icons ul li a:hover{
+    opacity: .7;
+}
+
+.social-media-icons ul li a img{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    scale: .9;
+}
 
 
 

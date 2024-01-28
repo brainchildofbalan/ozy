@@ -320,6 +320,35 @@
 
 
 
+    <div class="social-media-icons">
+        <ul>
+            <li>
+                {{-- whatsapp --}}
+                <a href="">
+                    <img src="{{ asset('/assets/front-end/images/social-links/whatsapp.svg') }}" />
+                </a>
+            </li>
+            <li>
+                {{-- instagram --}}
+                <a href="">
+                    <img src="{{ asset('/assets/front-end/images/social-links/instagram.svg') }}" />
+                </a>
+            </li>
+            <li>
+                {{-- call --}}
+                <a href="">
+                    <img src="{{ asset('/assets/front-end/images/social-links/calling.svg') }}" />
+                </a>
+            </li>
+            <li>
+                {{-- youtube --}}
+                <a href="">
+                    <img src="{{ asset('/assets/front-end/images/social-links/youtube.svg') }}" />
+                </a>
+            </li>
+        </ul>
+    </div>
+
 
 
 
