@@ -4,7 +4,7 @@
     <div class="flex-grow-1 container-p-x container-p-y">
         <div class="card mb-3 flex-row justify-content-between align-items-center p-3">
             <h5 class="card-header p-0">Uploaded sub category details</h5>
-            <a href="{{ route('sub-categories.create') }}" class="btn btn-primary">Create new category</a>
+            <a href="{{ route('sub-categories.create') }}" class="btn btn-primary">Create new sub category</a>
         </div>
 
         <div class="card border-0">

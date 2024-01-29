@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Create new product')
+@section('title', 'Create new sub category')
 @section('content')
     <div class="flex-grow-1 container-p-x container-p-y">
         {{-- <?php var_dump($categoriesList); ?> --}}
@@ -39,7 +39,7 @@
                 <!-- HTML5 Inputs -->
                 <div class="card mb-3 flex-row justify-content-between align-items-center p-3">
                     <h5 class="card-header p-0">Create sub category</h5>
-                    <a href="{{ route('sub-categories.index') }}" class="btn btn-primary">View all category</a>
+                    <a href="{{ route('sub-categories.index') }}" class="btn btn-primary">View all sub category</a>
                 </div>
                 <div class="card mb-0">
                     <div class="card-body">
@@ -121,7 +121,7 @@
 
 
                         <div class="mb-0 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary ms-auto">Create Product</button>
+                            <button type="submit" class="btn btn-primary ms-auto">Create sub category</button>
                         </div>
                     </div>
 

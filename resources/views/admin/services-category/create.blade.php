@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Create new product')
+@section('title', 'Create new category')
 @section('content')
     <div class="flex-grow-1 container-p-x container-p-y">
 
@@ -35,8 +35,8 @@
             <div class="w-100">
                 <!-- HTML5 Inputs -->
                 <div class="card mb-3 flex-row justify-content-between align-items-center p-3">
-                    <h5 class="card-header p-0">Create new product</h5>
-                    <a href="{{ route('service-categories.index') }}" class="btn btn-primary">View all product</a>
+                    <h5 class="card-header p-0">Create new category</h5>
+                    <a href="{{ route('service-categories.index') }}" class="btn btn-primary">View all category</a>
                 </div>
                 <div class="card mb-0">
                     <div class="card-body">
@@ -92,7 +92,7 @@
 
 
                         <div class="mb-0 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary ms-auto">Create Product</button>
+                            <button type="submit" class="btn btn-primary ms-auto">Create category</button>
                         </div>
                     </div>
 

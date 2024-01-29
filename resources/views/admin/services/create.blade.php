@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Create new product')
+@section('title', 'Create new service')
 @section('content')
     <div class="flex-grow-1 container-p-x container-p-y">
 
@@ -35,8 +35,8 @@
             <div class="w-100">
                 <!-- HTML5 Inputs -->
                 <div class="card mb-3 flex-row justify-content-between align-items-center p-3">
-                    <h5 class="card-header p-0">Create new product</h5>
-                    <a href="{{ route('services.index') }}" class="btn btn-primary">View all product</a>
+                    <h5 class="card-header p-0">Create new service</h5>
+                    <a href="{{ route('services.index') }}" class="btn btn-primary">View all service</a>
                 </div>
                 <div class="card mb-0">
                     <div class="card-body">
@@ -129,7 +129,7 @@
 
                         {{-- relative_products --}}
                         <div class="mb-3 row">
-                            <label for="html5-text-input" class="col-md-2 col-form-label">relative_products</label>
+                            <label for="html5-text-input" class="col-md-2 col-form-label">relative_service</label>
                             <div class="col-md-10">
                                 <input class="form-control @error('relative_products') is-invalid @enderror" type="text"
                                     placeholder="Enter relative_products" name="relative_products"
@@ -166,7 +166,7 @@
 
 
                         <div class="mb-0 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary ms-auto">Create Product</button>
+                            <button type="submit" class="btn btn-primary ms-auto">Create service</button>
                         </div>
                     </div>
 

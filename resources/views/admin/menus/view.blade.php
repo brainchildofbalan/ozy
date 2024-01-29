@@ -1,10 +1,10 @@
 @extends('admin.layout')
-@section('title', 'Category')
+@section('title', ' menu')
 @section('content')
     <div class="flex-grow-1 container-p-x container-p-y">
         <div class="card mb-3 flex-row justify-content-between align-items-center p-3">
-            <h5 class="card-header p-0">Uploaded sub category details</h5>
-            <a href="{{ route('menus.create') }}" class="btn btn-primary">Create new category</a>
+            <h5 class="card-header p-0">Uploaded menu details</h5>
+            <a href="{{ route('menus.create') }}" class="btn btn-primary">Create new menu</a>
         </div>
 
         <div class="card border-0">
@@ -48,7 +48,7 @@
 
                                             <form class="dropdown-item" method="post"
                                                 action="{{ route('menus.destroy', $category->id) }}"
-                                                onsubmit="return confirm('Are you sure you want to delete this category?')">
+                                                onsubmit="return confirm('Are you sure you want to delete this sub category?')">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>

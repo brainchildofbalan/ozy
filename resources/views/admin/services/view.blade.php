@@ -3,8 +3,8 @@
 @section('content')
     <div class="flex-grow-1 container-p-x container-p-y">
         <div class="card mb-3 flex-row justify-content-between align-items-center p-3">
-            <h5 class="card-header p-0">Uploaded Category</h5>
-            <a href="{{ route('services.create') }}" class="btn btn-primary">Create new product</a>
+            <h5 class="card-header p-0">Service manager</h5>
+            <a href="{{ route('services.create') }}" class="btn btn-primary">Create new service</a>
         </div>
         <div class="card border-0">
             <div class="table-responsive text-nowrap card-body">

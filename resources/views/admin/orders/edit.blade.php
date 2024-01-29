@@ -22,7 +22,7 @@
                 <!-- HTML5 Inputs -->
                 <div class="card mb-3 flex-row justify-content-between align-items-center p-3">
                     <h5 class="card-header p-0">Edit orders</h5>
-                    <a href="{{ route('orders.index') }}" class="btn btn-primary">View all product</a>
+                    <a href="{{ route('orders.index') }}" class="btn btn-primary">View all orders</a>
                 </div>
 
 

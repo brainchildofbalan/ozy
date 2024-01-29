@@ -3,7 +3,7 @@
 @section('content')
     <div class="flex-grow-1 container-p-x container-p-y">
         <div class="card p-3">
-            <h4 class="card-header  p-0 mb-3">Sub category details</h4>
+            <h4 class="card-header  p-0 mb-3">menu details</h4>
 
             <p class="mb-1"><strong>Category ID:</strong> {{ $category->category_id }}</p>
             <p class="mb-1"><strong>Name:</strong> {{ $category->name }}</p>
@@ -16,11 +16,11 @@
             @endif
 
             <div class="mt-3">
-                <a href="{{ route('menus.index') }}" class="btn btn-secondary">Back to Categories</a>
+                <a href="{{ route('menus.index') }}" class="btn btn-secondary">Back to menu</a>
                 <a href="{{ route('menus.edit', $category->id) }}" class="btn btn-primary">Edit</a>
 
                 <form method="post" action="{{ route('menus.destroy', $category->id) }}" class="d-inline"
-                    onsubmit="return confirm('Are you sure you want to delete this category?')">
+                    onsubmit="return confirm('Are you sure you want to delete this sub category?')">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>

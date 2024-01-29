@@ -36,8 +36,8 @@
             <div class="w-100">
                 <!-- HTML5 Inputs -->
                 <div class="card mb-3 flex-row justify-content-between align-items-center p-3">
-                    <h5 class="card-header p-0">Create new sub category</h5>
-                    <a href="{{ route('menus.index') }}" class="btn btn-primary">View all category</a>
+                    <h5 class="card-header p-0">Create new menu</h5>
+                    <a href="{{ route('menus.index') }}" class="btn btn-primary">View all menus</a>
                 </div>
                 <div class="card mb-0">
                     <div class="card-body">
@@ -167,7 +167,7 @@
 
 
                     <div class="mb-0 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary ms-auto">Create Product</button>
+                        <button type="submit" class="btn btn-primary ms-auto">Update menu</button>
                     </div>
 
 
