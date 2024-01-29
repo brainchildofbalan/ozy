@@ -12,196 +12,206 @@ use Ramsey\Uuid\Uuid;
 
 class OrderController extends Controller
 {
-    public function index()
-    {
-        $orders = Order::all();
-        return view('admin.orders.view', compact('orders'));
+  public function index()
+  {
+    $orders = Order::all();
+    return view('admin.orders.view', compact('orders'));
+  }
+
+
+  public function show($id)
+  {
+    $orders = Order::findOrFail($id);
+    return view('admin.orders.show', compact('orders'));
+  }
+
+  public function create()
+  {
+    $categories = ServicesCategory::all();
+    return view('admin.orders.create', compact('categories'));
+  }
+
+  public function store(Request $request)
+  {
+    $data = $request->validate([
+      'address' => 'required|string',
+      'city' => 'required|string',
+      'countryCode' => 'required|string',
+      'email' => 'required|string',
+      'firstName' => 'required|string',
+      'lastName' => 'required|string',
+      'phone' => 'required|string',
+      'postalCode' => 'required|string',
+      'time' => 'required|string',
+      'zone' => 'required|string',
+      'status' => 'required|string',
+      'products' => 'required|string',
+      'description' => 'required|string',
+      'notes' => 'required|string',
+      'other' => 'required|string',
+    ]);
+
+    $data['order'] = Order::count() + 1;
+
+    // Handle image upload if needed
+    if ($request->hasFile('image')) {
+      $imagePath = $request->file('image')->store('services_images', 'public');
+      $data['image'] = $imagePath;
+      echo $imagePath;
+    }
+    $data['url'] = Str::slug($request->input('name'));
+    $data['updated_by'] = Str::slug($request->input('name'));
+    $data['service_id'] = Uuid::uuid4()->toString();
+    Order::create($data);
+
+    return redirect()->route('orders.index')->with('success', 'Category created successfully');
+  }
+
+  // Add other methods like edit, update, delete, etc.
+
+  public function edit($id)
+  {
+    $category = Order::findOrFail($id);
+    $categories = ServicesCategory::all();
+
+    return view('admin.orders.edit', compact('category', 'categories'));
+  }
+
+
+
+
+  public function update(Request $request, $id)
+  {
+    $category = Order::findOrFail($id);
+
+    $data = $request->validate([
+      'name' => 'required|string|max:255',
+      'description' => 'required|string',
+      'thumb_description' => 'required|string',
+      'image' => 'image|mimes:jpeg,png,jpg,gif',
+      'category_id' => 'required',
+      'relative_products' => 'required',
+    ], [
+      'name.required' => 'The :attribute field is required.',
+      'name.string' => 'The :attribute must be a string.',
+      'name.max' => 'The :attribute must not exceed 255 characters.',
+
+      'description.required' => 'The :attribute field is required.',
+      'description.string' => 'The :attribute must be a string.',
+
+      'thumb_description.required' => 'The :attribute field is required.',
+      'thumb_description.string' => 'The :attribute must be a string.',
+
+      'image.image' => 'The :attribute must be an image file.',
+      'image.mimes' => 'The :attribute must be of type jpeg, png, jpg, or gif.',
+
+      'category_id.required' => 'The :attribute field is required.',
+
+      'relative_products.required' => 'The :attribute field is required.',
+
+    ]);
+
+    // Handle image upload if needed
+    if ($request->hasFile('image')) {
+      // Delete the existing image if it exists
+      if ($category->image) {
+        Storage::disk('public')->delete($category->image);
+      }
+
+      // Upload the new image
+      $imagePath = $request->file('image')->store('services_images]\]', 'public');
+      $data['image'] = $imagePath;
+    }
+
+    $data['url'] = Str::slug($request->input('name'));
+    $data['updated_by'] = Str::slug($request->input('name'));
+    // Update the category in the database
+    $category->update($data);
+
+    return redirect()->route('orders.index')->with('success', 'Category updated successfully');
+  }
+
+
+
+
+
+
+  public function destroy($id)
+  {
+    $category = Order::findOrFail($id);
+
+    // Delete the associated image from storage if it exists
+    if ($category->image) {
+      Storage::disk('public')->delete($category->image);
+    }
+
+    // Delete the category from the database
+    $category->delete();
+
+    return redirect()->route('orders.index')->with('success', 'Category deleted successfully');
+  }
+
+
+  public function status($id, $status)
+  {
+    $category = Order::findOrFail($id);
+    Order::where('id', intval($id))->update(['status' => $status]);
+    return redirect()->route('orders.show', $id)->with('success', 'Category updated successfully');
+  }
+
+
+
+
+
+  public function generate($id)
+  {
+    $category = Order::findOrFail($id);
+    return view('admin.orders.generate', compact('category'));
+  }
+
+
+  public function storepdf(Request $request, $id)
+  {
+    $validationRules = [];
+    $category = Order::findOrFail($id);
+    $arrayOfObjects = json_decode($category->products);
+
+    foreach ($arrayOfObjects as $rule) {
+      $validationRules['name' . (string) $rule->id] = 'required';
+    }
+
+    foreach ($arrayOfObjects as $object) {
+      // Add the new key "price" with the specified value
+      $object->price = $request->input('name' . $object->id);
     }
 
 
-    public function show($id)
-    {
-        $orders = Order::findOrFail($id);
-        return view('admin.orders.show', compact('orders'));
+
+
+
+    $total = 0;
+    foreach ($arrayOfObjects as $item) {
+      // Convert price to integer (assuming it's in string format)
+      $price = (int) $item->price;
+      $qty = $item->qty;
+
+      // Calculate subtotal for each item
+      $subtotal = $price * $qty;
+
+      // Add subtotal to the total
+      $total += $subtotal;
     }
-
-    public function create()
-    {
-        $categories = ServicesCategory::all();
-        return view('admin.orders.create', compact('categories'));
-    }
-
-    public function store(Request $request)
-    {
-        $data = $request->validate([
-            'address' => 'required|string',
-            'city' => 'required|string',
-            'countryCode' => 'required|string',
-            'email' => 'required|string',
-            'firstName' => 'required|string',
-            'lastName' => 'required|string',
-            'phone' => 'required|string',
-            'postalCode' => 'required|string',
-            'time' => 'required|string',
-            'zone' => 'required|string',
-            'status' => 'required|string',
-            'products' => 'required|string',
-            'description' => 'required|string',
-            'notes' => 'required|string',
-            'other' => 'required|string',
-        ]);
-
-        $data['order'] = Order::count() + 1;
-
-        // Handle image upload if needed
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('services_images', 'public');
-            $data['image'] = $imagePath;
-            echo $imagePath;
-        }
-        $data['url'] = Str::slug($request->input('name'));
-        $data['updated_by'] = Str::slug($request->input('name'));
-        $data['service_id'] = Uuid::uuid4()->toString();
-        Order::create($data);
-
-        return redirect()->route('orders.index')->with('success', 'Category created successfully');
-    }
-
-    // Add other methods like edit, update, delete, etc.
-
-    public function edit($id)
-    {
-        $category = Order::findOrFail($id);
-        $categories = ServicesCategory::all();
-
-        return view('admin.orders.edit', compact('category', 'categories'));
-    }
-
-
-
-
-    public function update(Request $request, $id)
-    {
-        $category = Order::findOrFail($id);
-
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'thumb_description' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,gif',
-            'category_id' => 'required',
-            'relative_products' => 'required',
-        ], [
-            'name.required' => 'The :attribute field is required.',
-            'name.string' => 'The :attribute must be a string.',
-            'name.max' => 'The :attribute must not exceed 255 characters.',
-
-            'description.required' => 'The :attribute field is required.',
-            'description.string' => 'The :attribute must be a string.',
-
-            'thumb_description.required' => 'The :attribute field is required.',
-            'thumb_description.string' => 'The :attribute must be a string.',
-
-            'image.image' => 'The :attribute must be an image file.',
-            'image.mimes' => 'The :attribute must be of type jpeg, png, jpg, or gif.',
-
-            'category_id.required' => 'The :attribute field is required.',
-
-            'relative_products.required' => 'The :attribute field is required.',
-
-        ]);
-
-        // Handle image upload if needed
-        if ($request->hasFile('image')) {
-            // Delete the existing image if it exists
-            if ($category->image) {
-                Storage::disk('public')->delete($category->image);
-            }
-
-            // Upload the new image
-            $imagePath = $request->file('image')->store('services_images]\]', 'public');
-            $data['image'] = $imagePath;
-        }
-
-        $data['url'] = Str::slug($request->input('name'));
-        $data['updated_by'] = Str::slug($request->input('name'));
-        // Update the category in the database
-        $category->update($data);
-
-        return redirect()->route('orders.index')->with('success', 'Category updated successfully');
-    }
+    echo "Total: $total";
 
 
 
 
 
+    // Create Dompdf instance
+    $dompdf = new Dompdf();
 
-    public function destroy($id)
-    {
-        $category = Order::findOrFail($id);
-
-        // Delete the associated image from storage if it exists
-        if ($category->image) {
-            Storage::disk('public')->delete($category->image);
-        }
-
-        // Delete the category from the database
-        $category->delete();
-
-        return redirect()->route('orders.index')->with('success', 'Category deleted successfully');
-    }
-
-
-
-    public function generate($id)
-    {
-        $category = Order::findOrFail($id);
-        return view('admin.orders.generate', compact('category'));
-    }
-
-
-    public function storepdf(Request $request, $id)
-    {
-        $validationRules = [];
-        $category = Order::findOrFail($id);
-        $arrayOfObjects = json_decode($category->products);
-
-        foreach ($arrayOfObjects as $rule) {
-            $validationRules['name' . (string) $rule->id] = 'required';
-        }
-
-        foreach ($arrayOfObjects as $object) {
-            // Add the new key "price" with the specified value
-            $object->price = $request->input('name' . $object->id);
-        }
-
-
-
-
-
-        $total = 0;
-        foreach ($arrayOfObjects as $item) {
-            // Convert price to integer (assuming it's in string format)
-            $price = (int) $item->price;
-            $qty = $item->qty;
-
-            // Calculate subtotal for each item
-            $subtotal = $price * $qty;
-
-            // Add subtotal to the total
-            $total += $subtotal;
-        }
-        echo "Total: $total";
-
-
-
-
-
-        // Create Dompdf instance
-        $dompdf = new Dompdf();
-
-        // Load HTML content
-        $html = '
+    // Load HTML content
+    $html = '
 <style>@page { margin: 0px; }
     body { margin: 0px; }</style>
 <table
@@ -703,9 +713,9 @@ class OrderController extends Controller
 
 
 
-        foreach ($arrayOfObjects as $index => $object) {
+    foreach ($arrayOfObjects as $index => $object) {
 
-            $html .= '
+      $html .= '
 
 
 
@@ -863,11 +873,11 @@ class OrderController extends Controller
 
 
                     ';
-        }
+    }
 
 
 
-        $html .= '
+    $html .= '
 
 
 
@@ -1421,37 +1431,37 @@ class OrderController extends Controller
 ';
 
 
-        // Load HTML into Dompdf
-        $dompdf->loadHtml($html);
+    // Load HTML into Dompdf
+    $dompdf->loadHtml($html);
 
-        // Set paper size and orientation
-        $dompdf->setPaper('A4', 'portrait');
+    // Set paper size and orientation
+    $dompdf->setPaper('A4', 'portrait');
 
-        // Set left margin to zero
-        $options = $dompdf->getOptions();
-        $options->set('isPhpEnabled', true);
-        $options->set('isHtml5ParserEnabled', true);
-        $options->set('isRemoteEnabled', true);
-        $options->set('marginLeft', 0);
+    // Set left margin to zero
+    $options = $dompdf->getOptions();
+    $options->set('isPhpEnabled', true);
+    $options->set('isHtml5ParserEnabled', true);
+    $options->set('isRemoteEnabled', true);
+    $options->set('marginLeft', 0);
 
-        // Render the HTML as PDF
-        $dompdf->render();
+    // Render the HTML as PDF
+    $dompdf->render();
 
-        // Get the PDF content
-        $pdfContent = $dompdf->output();
+    // Get the PDF content
+    $pdfContent = $dompdf->output();
 
-        // Define the file path
-        $filePath = 'invoice_pdf/generated' . $category->id . '.pdf'; // Relative to the storage/app/public directory
+    // Define the file path
+    $filePath = 'invoice_pdf/generated' . $category->id . '.pdf'; // Relative to the storage/app/public directory
 
-        // Store the PDF file using the Storage facade
-        Storage::disk('public')->put($filePath, $pdfContent);
+    // Store the PDF file using the Storage facade
+    Storage::disk('public')->put($filePath, $pdfContent);
 
-        // Now $imagePath contains the path to the stored PDF file
-        $imagePath = Storage::url($filePath);
+    // Now $imagePath contains the path to the stored PDF file
+    $imagePath = Storage::url($filePath);
 
-        // You can use $imagePath as needed, for example, to display a link to the PDF file
+    // You can use $imagePath as needed, for example, to display a link to the PDF file
 
-        Order::where('id', intval($id))->update(['products' => json_encode($arrayOfObjects), 'pdf_link' => $imagePath]);
-        return redirect()->route('orders.index')->with('success', 'Category updated successfully');
-    }
+    Order::where('id', intval($id))->update(['products' => json_encode($arrayOfObjects), 'pdf_link' => $imagePath]);
+    return redirect()->route('orders.index')->with('success', 'Category updated successfully');
+  }
 }

@@ -81,6 +81,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('orders', OrderController::class);
         Route::get('orders/{id}/generate', [OrderController::class, 'generate'])->name('orders.generateOrder');;
         Route::post('orders/{id}/generate/pdf', [OrderController::class, 'storepdf'])->name('orders.storepdf');;
+        Route::put('orders/{id}/status/{status}', [OrderController::class, 'status'])->name('orders.status');;
         Route::post('menus/update-order', [MenuController::class, 'updateOrder'])->name('menus.updateOrder');
         Route::get('menus/update-orders', [MenuController::class, 'updateOrderGet'])->name('menus.updateOrderGet');
         Route::resource('menus', MenuController::class);

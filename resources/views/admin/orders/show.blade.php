@@ -2,9 +2,61 @@
 @section('title', 'Category')
 @section('content')
     <div class="flex-grow-1 container-p-x container-p-y">
+        <div class="card border-0 mb-3">
+            <div class="card-body">
+                <h4>Change order status
+
+
+
+
+                </h4>
+                <div class="w-100 d-flex">
+
+                    <form method="post" action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Placed']) }}"
+                        class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="btn btn-primary me-2">Order Placed</button>
+                    </form>
+                    <form method="post" action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Shipped']) }}"
+                        class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="btn btn-secondary me-2">Order Shipped</button>
+                    </form>
+                    <form method="post"
+                        action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Delivered']) }}"
+                        class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="btn btn-info me-5">Order Delivered</button>
+                    </form>
+                    <form method="post"
+                        action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Canceled']) }}"
+                        class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="btn btn-danger me-2">Order Canceled</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="card border-0">
             <div class="card-body">
-                <h2>Order Details</h2>
+                <h2 class="flex align-items-center">Order Details
+                    @if ($orders->status !== 'ordered')
+                        <span
+                            class="badge 
+                        @if ($orders->status === 'Canceled') bg-danger @endif
+                        @if ($orders->status === 'Delivered') bg-info @endif
+                        @if ($orders->status === 'Shipped') bg-secondary @endif
+                        @if ($orders->status === 'Placed') bg-primary @endif
+                         text-h6"
+                            style="font-size: 13px; vertical-align: middle">
+                            {{ $orders->status }}
+                        </span>
+                    @endif
+                </h2>
                 <p>First Name : <strong> {{ $orders->firstName }} </strong></p>
                 <p>Last Name : <strong> {{ $orders->lastName }} </strong></p>
                 <p>Phone : <strong> {{ $orders->phone }} </strong></p>
@@ -15,9 +67,9 @@
                 <p>PIN Code : <strong> {{ $orders->postalCode }} </strong></p>
                 <p>State : <strong> {{ $orders->zone }} </strong></p>
                 <p>Status : <strong> {{ $orders->status }} </strong></p>
-                <p>Description : <strong> {{ $orders->description }} </strong></p>
-                <p>Notes : <strong> {{ $orders->notes }} </strong></p>
-                <p>Other : <strong> {{ $orders->other }} </strong></p>
+                {{-- <p>Description : <strong> {{ $orders->description }} </strong></p> --}}
+                {{-- <p>Notes : <strong> {{ $orders->notes }} </strong></p> --}}
+                {{-- <p>Other : <strong> {{ $orders->other }} </strong></p> --}}
                 <p>Orderd at : <strong> {{ $orders->created_at }} </strong></p>
 
 
