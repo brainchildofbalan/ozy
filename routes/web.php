@@ -40,6 +40,10 @@ Route::get('/checkout', function () {
 Route::get('/success', function () {
     return view('front-end.success.view');
 });
+Route::get('/success-service', function () {
+    return view('front-end.success-service.view');
+});
+
 Route::get('/products/{url}/{sub_url}/{product}', [FrontEndProductController::class, 'fetchSingle']);
 Route::get('/products/fetch/{id}', [FrontEndProductController::class, 'fetchAll']);
 Route::get('/products/{url}', [FrontEndProductController::class, 'category']);
@@ -57,6 +61,8 @@ Route::get('/gallery/{url}/{sub_url}', [GalleryController::class, 'SubCategory']
 
 
 Route::post('/place-order', [FrontEndOrderController::class, 'saveOrder'])->name('products.saveOrder');
+Route::post('/place-enq', [FrontEndServicesController::class, 'saveEnq'])->name('services.saveEnq');
+
 
 Route::prefix('admin')->group(function () {
     Route::controller(AuthenticationController::class)->group(function () {
@@ -86,4 +92,11 @@ Route::prefix('admin')->group(function () {
         Route::get('menus/update-orders', [MenuController::class, 'updateOrderGet'])->name('menus.updateOrderGet');
         Route::resource('menus', MenuController::class);
     });
+});
+
+
+
+
+Route::get('/template', function () {
+    return view('emails.orders.submitted');
 });

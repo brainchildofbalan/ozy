@@ -102,7 +102,7 @@
 
                     <div class="enq-form-group">
                         <input type="text" name="servcies" id="serviceField" class="enq-form-controls"
-                            placeholder="Service" value="{{ $services->name }}" disabled>
+                            placeholder="Service" value="{{ $services->name }}">
                         <span class="error" id="serviceError"></span>
                     </div>
 
@@ -126,7 +126,9 @@
         </div>
     </div>
     <div class="enq-wrapper-overlay"></div>
-
+    <script>
+        var main_token = '{{ csrf_token() }}';
+    </script>
 
 
 

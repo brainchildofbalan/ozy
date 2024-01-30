@@ -87,6 +87,12 @@
                                 </a>
                             </li>
 
+                            <li class="menu-item ">
+                                <a href="{{ route('service-categories.index') }}" class="menu-link">
+                                    <div>Order enquiries</div>
+                                </a>
+                            </li>
+
 
 
                         </ul>
@@ -143,6 +149,7 @@
 
                         </ul>
                     </li>
+
                 </ul>
 
 

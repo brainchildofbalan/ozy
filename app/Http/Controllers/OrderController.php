@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderSubmitted;
 use App\Models\Order;
 use App\Models\ServicesCategory;
 use Dompdf\Dompdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Ramsey\Uuid\Uuid;
@@ -156,6 +158,10 @@ class OrderController extends Controller
   {
     $category = Order::findOrFail($id);
     Order::where('id', intval($id))->update(['status' => $status]);
+    $orderSubmittedEmail = new OrderSubmitted();
+
+    // Use the Mail facade to send the email
+    Mail::to('brainchildofbalan@gmail.com')->send($orderSubmittedEmail);
     return redirect()->route('orders.show', $id)->with('success', 'Category updated successfully');
   }
 

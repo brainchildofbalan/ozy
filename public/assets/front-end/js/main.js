@@ -20,7 +20,7 @@ const sumNumber = (mainCart) => {
 function redirectToHome() {
     // check any length
     const isCart = JSON.parse(localStorage.getItem('cart'));
-    const checkLength = JSON.parse(localStorage.getItem('cart')).length > 0;
+    const checkLength = JSON.parse(localStorage.getItem('cart'))?.length > 0;
 
     console.log(checkLength);
     if (!localStorage.getItem('cart')) {
@@ -668,7 +668,7 @@ function validateFormService() {
         // // If form is valid, make a POST request
         if (isValid) {
             var jsonData = {};
-            const formData = new FormData(document.getElementById('checkoutFrom'));
+            const formData = new FormData(document.getElementById('serviceFrom'));
             formData.forEach(function (value, key) {
                 jsonData[key] = value;
             });
@@ -677,11 +677,10 @@ function validateFormService() {
                 console.log(`${key}: ${value}`);
             });
 
-            const listed_products = localStorage.getItem('cart');
 
-            const dataMain = { ...jsonData, products: listed_products }
+            const dataMain = { ...jsonData }
             console.log(dataMain)
-            fetch('/place-order', {
+            fetch('/place-enq', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -694,7 +693,8 @@ function validateFormService() {
                     // Handle the response from the server
                     if (data?.status === "success") {
                         localStorage.removeItem('cart');
-                        window.location.href = '/success';
+                        document.getElementById('serviceFrom').reset();
+                        window.location.href = '/success-service';
                     }
                 })
                 .catch(error => {

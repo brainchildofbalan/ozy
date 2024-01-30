@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\ProductSubCategory;
+use App\Models\ServiceEnquiry;
 use App\Models\Services;
 use App\Models\ServicesCategory;
 use Illuminate\Http\Request;
@@ -48,5 +49,22 @@ class FrontEndServicesController extends Controller
     {
         $services = Services::where('url', $services)->first();
         return view('front-end.service-details.view', compact('services'));
+    }
+
+    public function saveEnq(Request $request)
+    {
+
+        $data['number'] = $request->input('phone');
+        $data['name'] = $request->input('firstName');
+        $data['email'] = $request->input('email');
+        $data['service'] = $request->input('servcies');
+        $data['address'] = $request->input('address');
+        $data['follow_up'] = 'Enquired';
+        $data['other'] = 'test';
+        $data['category'] = $request->input('servcies');
+
+        ServiceEnquiry::create($data);
+
+        return response()->json(['status' => 'success']);
     }
 }
