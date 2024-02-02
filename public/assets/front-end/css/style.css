@@ -519,7 +519,7 @@ header{
      font-weight: 400;
      border-radius: 5px;
      overflow: hidden;
-     padding: 5px;
+     padding: 10px;
      height: 100%;
 }
 @media (min-width : 991px) {
@@ -540,7 +540,7 @@ header{
 .product-image-wrapper{
     width: 100%;
     position: relative;
-    aspect-ratio: 123.11/88.41;
+    aspect-ratio: 123.11/123.11;
 }
 .product-image-wrapper img{
     position: absolute;
