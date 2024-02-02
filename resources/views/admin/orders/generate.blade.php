@@ -45,16 +45,17 @@
                         $total = 0;
                         foreach ($arrayOfObjects as $item) {
                             // Convert price to integer (assuming it's in string format)
-                            $price = (int) $item->price;
-                            $qty = $item->qty;
+                            if (isset($product->price)) {
+                                $price = (int) $item->price;
+                                $qty = $item->qty;
 
-                            // Calculate subtotal for each item
-                            $subtotal = $price * $qty;
+                                // Calculate subtotal for each item
+                                $subtotal = $price * $qty;
 
-                            // Add subtotal to the total
-                            $total += $subtotal;
+                                // Add subtotal to the total
+                                $total += $subtotal;
+                            }
                         }
-                        echo "Total: $total";
 
                     @endphp
                     @if ($arrayOfObjects !== null)
@@ -68,12 +69,11 @@
                                             style="position: absolute; left: 8px; top: 8px; background-color: #fff; width: 10px; height: 10px; font-size: 10px; display: flex; justify-content: center; align-items: center; color: #000">{{ $object->qty }}</span>
                                     </span>
                                     <span class="ps-1">{{ $object->name }}</span>
-                                    {{ $object->price }}
                                 </label>
                                 <div class="col-md-10 d-flex align-items-center flex-column justify-content-center">
                                     <input class="form-control @error('name' . $object->id) is-invalid @enderror"
                                         type="text" placeholder="Enter Price" name="name{{ $object->id }}"
-                                        value="{{ old('name' . $object->id, $object->price || 0) }}">
+                                        value="{{ old('name' . $object->id, isset($object->price) && $object->price > 0 ? $object->price : '') }}">
                                     @error('name' . $object->id)
                                         <span class="invalid-feedback">
                                             {{ $message }}

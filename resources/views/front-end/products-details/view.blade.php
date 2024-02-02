@@ -6,28 +6,30 @@
 
     <div class="bread-crumbs">
         <div class="container">
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/products">Products</a>
-                </li>
-                <li>
-                    <a
-                        href="/products/{{ Str::slug(explode(',', $products->category_id)[1]) }}">{{ explode(',', $products->category_id)[1] }}</a>
-                </li>
+            <div class="scoll-wrapper-list">
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/products">Products</a>
+                    </li>
+                    <li>
+                        <a
+                            href="/products/{{ Str::slug(explode(',', $products->category_id)[1]) }}">{{ explode(',', $products->category_id)[1] }}</a>
+                    </li>
 
 
-                <li>
-                    <a
-                        href="/products/{{ Str::slug(explode(',', $products->category_id)[1]) }}/{{ Str::slug(explode(',', $products->sub_category_id)[1]) }}">{{ explode(',', $products->sub_category_id)[1] }}</a>
-                </li>
+                    <li>
+                        <a
+                            href="/products/{{ Str::slug(explode(',', $products->category_id)[1]) }}/{{ Str::slug(explode(',', $products->sub_category_id)[1]) }}">{{ explode(',', $products->sub_category_id)[1] }}</a>
+                    </li>
 
-                <li>
-                    <span>{{ $products->name }}</span>
-                </li>
-            </ul>
+                    <li>
+                        <span>{{ $products->name }}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 

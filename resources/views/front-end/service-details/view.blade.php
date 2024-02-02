@@ -6,24 +6,26 @@
 
     <div class="bread-crumbs">
         <div class="container">
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/services">Services</a>
-                </li>
-                <li>
-                    <a
-                        href="/services/{{ Str::slug(explode(',', $services->category_id)[1]) }}">{{ explode(',', $services->category_id)[1] }}</a>
-                </li>
+            <div class="scoll-wrapper-list">
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/services">Services</a>
+                    </li>
+                    <li>
+                        <a
+                            href="/services/{{ Str::slug(explode(',', $services->category_id)[1]) }}">{{ explode(',', $services->category_id)[1] }}</a>
+                    </li>
 
 
 
-                <li>
-                    <span>{{ $services->name }}</span>
-                </li>
-            </ul>
+                    <li>
+                        <span>{{ $services->name }}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 

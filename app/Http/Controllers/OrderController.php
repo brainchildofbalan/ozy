@@ -308,7 +308,7 @@ class OrderController extends Controller
                           font-size: 14px;
                           font-family: \'Arial\', Helvetica Neue, Helvetica,
                                         sans-serif;
-                          font-weight: 600;
+                          font-weight: 700;
                           line-height: 1.4;
                           color: #000000;
                           margin-bottom: 5px;
@@ -441,7 +441,7 @@ class OrderController extends Controller
                           font-size: 15px;
                           font-family: \'Arial\', Helvetica Neue, Helvetica,
                                         sans-serif;
-                          font-weight: 600;
+                          font-weight: 700;
                           line-height: 1.4;
                           color: #000000;
                           margin-bottom: 2px;
@@ -513,7 +513,7 @@ class OrderController extends Controller
                                   font-size: 14px;
                                   font-family: \'Arial\', Helvetica Neue,
                                                 Helvetica, sans-serif;
-                                  font-weight: 600;
+                                  font-weight: 700;
                                   line-height: 1.4;
                                   color: #000000;
                                   margin-bottom: 5px;
@@ -548,7 +548,7 @@ class OrderController extends Controller
                                   font-size: 14px;
                                   font-family: \'Arial\', Helvetica Neue,
                                                 Helvetica, sans-serif;
-                                  font-weight: 600;
+                                  font-weight: 700;
                                   line-height: 1.4;
                                   color: #000000;
                                   margin-bottom: 5px;
@@ -583,7 +583,7 @@ class OrderController extends Controller
                                   font-size: 14px;
                                   font-family: \'Arial\', Helvetica Neue,
                                                 Helvetica, sans-serif;
-                                  font-weight: 600;
+                                  font-weight: 700;
                                   line-height: 1.4;
                                   color: #000000;
                                   margin-bottom: 5px;
@@ -774,7 +774,7 @@ class OrderController extends Controller
                             font-size: 14px;
                             font-family: \'Arial\', Helvetica Neue, Helvetica,
                                           sans-serif;
-                            font-weight: 600;
+                            font-weight: 700;
                             line-height: 1.4;
                             color: #000;
                             margin-bottom: 0;
@@ -846,7 +846,7 @@ class OrderController extends Controller
                             font-size: 14px;
                             font-family: \'Arial\', Helvetica Neue, Helvetica,
                                           sans-serif;
-                            font-weight: 600;
+                            font-weight: 700;
                             line-height: 1.4;
                             color: #000;
                             margin-bottom: 0;
@@ -869,7 +869,7 @@ class OrderController extends Controller
                             font-size: 14px;
                             font-family: \'Arial\', Helvetica Neue, Helvetica,
                                           sans-serif;
-                            font-weight: 600;
+                            font-weight: 700;
                             line-height: 1.4;
                             color: #000;
                             margin-bottom: 0;
@@ -994,7 +994,7 @@ class OrderController extends Controller
                             font-size: 14px;
                             font-family: \'Arial\', Helvetica Neue, Helvetica,
                                           sans-serif;
-                            font-weight: 600;
+                            font-weight: 700;
                             line-height: 1.4;
                             color: #000;
                             margin-bottom: 0;
@@ -1075,7 +1075,7 @@ class OrderController extends Controller
                             font-size: 16px;
                             font-family: \'Arial\', Helvetica Neue, Helvetica,
                                           sans-serif;
-                            font-weight: 600;
+                            font-weight: 700;
                             line-height: 1.4;
                             color: #000;
                             margin-bottom: 0;
@@ -1186,7 +1186,7 @@ class OrderController extends Controller
                                     font-size: 14px;
                                     font-family: \'Arial\', Helvetica Neue,
                                                   Helvetica, sans-serif;
-                                    font-weight: 600;
+                                    font-weight: 700;
                                     line-height: 1.4;
                                     color: #000000;
                                     margin-bottom: 5px;
@@ -1221,7 +1221,7 @@ class OrderController extends Controller
                                     font-size: 14px;
                                     font-family: \'Arial\', Helvetica Neue,
                                                   Helvetica, sans-serif;
-                                    font-weight: 600;
+                                    font-weight: 700;
                                     line-height: 1.4;
                                     color: #000000;
                                     margin-bottom: 5px;
@@ -1256,7 +1256,7 @@ class OrderController extends Controller
                                     font-size: 14px;
                                     font-family: \'Arial\', Helvetica Neue,
                                                   Helvetica, sans-serif;
-                                    font-weight: 600;
+                                    font-weight: 700;
                                     line-height: 1.4;
                                     color: #000000;
                                     margin-bottom: 5px;
@@ -1291,7 +1291,7 @@ class OrderController extends Controller
                                     font-size: 14px;
                                     font-family: \'Arial\', Helvetica Neue,
                                                   Helvetica, sans-serif;
-                                    font-weight: 600;
+                                    font-weight: 700;
                                     line-height: 1.4;
                                     color: #000000;
                                     margin-bottom: 5px;

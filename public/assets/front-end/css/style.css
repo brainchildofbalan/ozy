@@ -1204,7 +1204,8 @@ textarea.checkout-form-controls{
     height: 100%;
     bottom: 0px;
     background-color: #fff;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     z-index: 9999;
     display: flex;
     flex-direction: column;
@@ -1679,6 +1680,16 @@ textarea.checkout-form-controls{
     padding: 0;
     margin: 0;
     display: flex;
+    direction: ltr;
+    margin-right: auto;
+}
+
+
+.scoll-wrapper-list{
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    direction: rtl;
 }
 
 .bread-crumbs ul li{
@@ -1686,6 +1697,7 @@ textarea.checkout-form-controls{
     padding-right: 10px;
     display: flex;
     align-items: center;
+    width: auto;
     
 }
 .bread-crumbs ul li span,
@@ -1694,6 +1706,7 @@ textarea.checkout-form-controls{
     line-height: 1.5;
     color: #000;
     text-decoration: none;
+    white-space: pre;
 }
 
 .bread-crumbs ul li a{
