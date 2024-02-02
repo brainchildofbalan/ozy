@@ -14,7 +14,7 @@
             </div>
         @endif --}}
 
-        <form action="{{ route('orders.storepdf', $category->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('services-enq.storepdf', $category->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             {{-- <label for="name">Name:</label>

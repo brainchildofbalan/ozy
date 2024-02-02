@@ -28,7 +28,7 @@
                                 <td width="600">
                                     <a href="#" target="_blank"
                                         style="display: block; width: 600px; margin-left: auto">
-                                        <img src="https://qualnex.com/McLaren/mailer2/logo-01.jpg" alt=""
+                                        <img src="{{ asset('/assets/admin/images/logo-01.jpg') }}" alt=""
                                             style="display: block" />
                                     </a>
                                 </td>
@@ -37,16 +37,9 @@
                     </table>
                 </td>
             </tr>
-
-            <tr>
-                <td>
-                    <img src="https://qualnex.com/McLaren/mailer2/banner-01.jpg" alt="" width="600px"
-                        height="310px" />
-                </td>
-            </tr>
             <tr>
                 <td style="width: 520px; padding-top: 37px; padding-bottom: 0px" align="center">
-                    <table border="0" cellspacing="0" role="presentation" cellpadding="0" width="600">
+                    <table border="0" cellspacing="0" role="presentation" cellpadding="0" width="520">
                         <tbody>
                             <tr>
                                 <td width="40"></td>
@@ -58,28 +51,31 @@
                         sans-serif;
                       font-weight: 400;
                       line-height: 1.4;
-                      color: #7c7a7a;
+                      color: #000000;
                     ">
-                                    Dear hi,<br /><br />
+                                    Hello Admin,<br /><br />
 
-                                    Each accessory perfectly complements your car’s design, feel
-                                    and function. It’s not hard to see why. <br /><br />
+                                    A new service enquiry has been received with the following details. <br /><br />
 
-                                    The range is created by McLaren engineers’ right where our
-                                    cars are built – at the McLaren Technology Centre. Which
-                                    means they share the same DNA and the same ethos of the cars
-                                    they’re designed to complement. The same stunning quality
-                                    across every detail. <br /><br />
+                                    <ul>
+                                        <li>Service ID: {{ $data->id }}</li>
+                                        <li>Customer Name: {{ $data->name }}</li>
+                                        <li>Customer Email: {{ $data->email }}</li>
+                                        <li>Customer Mobile: {{ $data->number }}</li>
+                                        <li>Customer Address: {{ $data->address }}</li>
+                                        <li>Placed Date: {{ $data->created_at }}</li>
 
-                                    We are delighted to offer you up to 40% discount throughout
-                                    the month of February on McLaren Genuine Accessories.
-                                    <br /><br />
 
-                                    Visit our Service Center or call 800 SENNA to find out
-                                    more.<br /><br />
+                                        <!-- Add more details as needed -->
+                                    </ul>
+
+                                    Please take necessary actions accordingly.<br /><br />
+
+
+
 
                                     Sincerely yours,<br />
-                                    McLaren Dubai Team
+                                    Ozyarabia
                                 </td>
                                 <td width="40"></td>
                             </tr>
@@ -88,41 +84,42 @@
                 </td>
             </tr>
             <tr>
-                <td style="background-color: #cccccc">
+                <td style="background-color: #00476f">
                     <table border="0" cellspacing="0" role="presentation" cellpadding="0" width="600"
                         align="center">
                         <tbody>
                             <tr>
                                 <td width="40" style="padding-top: 30px; padding-bottom: 25px"></td>
-                                <td width="487" style="padding-top: 30px; padding-bottom: 25px">
-                                    <!-- <p
-                      style="
-                        margin-bottom: 0;
-                        margin-top: 0;
-                        font-size: 11px;
-                        font-family: 'Arial', Helvetica Neue, Helvetica,
-                          sans-serif;
-                        font-weight: 400;
-                        line-height: 1.2;
-                        color: #7c7a7a;
-                      "
-                    >
-                      Please ignore this email if you have already renewed your
-                      warranty.
-                    </p> -->
+                                <td width="384" style="padding-top: 30px; padding-bottom: 25px">
                                 </td>
                                 <td width="24" style="padding-top: 30px; padding-bottom: 25px">
-                                    <a href="https://www.linkedin.com/company/83011107/admin/feed/posts/"
-                                        target="_blank" style="display: block; width: 24px; margin-left: auto">
-                                        <img src="https://qualnex.com/McLaren/mailer2/linkedin.png" alt=""
+                                    <a href="https://ozyarabia.com/" target="_blank"
+                                        style="display: block; width: 24px; margin-left: auto">
+                                        <img src="{{ asset('/assets/admin/images/wp.png') }}" alt=""
                                             width="24px" height="24px" />
                                     </a>
                                 </td>
-                                <td width="15" style="padding-top: 30px; padding-bottom: 25px"></td>
+                                <td width="20" style="padding-top: 30px; padding-bottom: 25px"></td>
                                 <td width="24" style="padding-top: 30px; padding-bottom: 25px">
-                                    <a href="https://www.instagram.com/mclaren.dubai/" target="_blank"
+                                    <a href="https://ozyarabia.com/" target="_blank"
                                         style="display: block; width: 24px; margin-left: auto">
-                                        <img src="https://qualnex.com/McLaren/mailer2/instagram.png" alt=""
+                                        <img src="{{ asset('/assets/admin/images/call.png') }}" alt=""
+                                            width="24px" height="24px" />
+                                    </a>
+                                </td>
+                                <td width="20" style="padding-top: 30px; padding-bottom: 25px"></td>
+                                <td width="24" style="padding-top: 30px; padding-bottom: 25px">
+                                    <a href="https://ozyarabia.com/" target="_blank"
+                                        style="display: block; width: 24px; margin-left: auto">
+                                        <img src="{{ asset('/assets/admin/images/facebook.png') }}" alt=""
+                                            width="24px" height="24px" />
+                                    </a>
+                                </td>
+                                <td width="20" style="padding-top: 30px; padding-bottom: 25px"></td>
+                                <td width="24" style="padding-top: 30px; padding-bottom: 25px">
+                                    <a href="https://ozyarabia.com/" target="_blank"
+                                        style="display: block; width: 24px; margin-left: auto">
+                                        <img src="{{ asset('/assets/admin/images/instagram.png') }}" alt=""
                                             width="24px" height="24px" />
                                     </a>
                                 </td>

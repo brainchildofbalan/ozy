@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ServiceEnq;
+use App\Mail\ServiceEnqAdmin;
 use App\Models\Menu;
 use App\Models\ProductSubCategory;
 use App\Models\ServiceEnquiry;
 use App\Models\Services;
 use App\Models\ServicesCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FrontEndServicesController extends Controller
 {
@@ -63,7 +66,12 @@ class FrontEndServicesController extends Controller
         $data['other'] = 'test';
         $data['category'] = $request->input('servcies');
 
-        ServiceEnquiry::create($data);
+        $order = ServiceEnquiry::create($data);
+
+        $orderSubmittedEmail = new ServiceEnq($order);
+        $orderSubmittedEmailAdmin = new ServiceEnqAdmin($order);
+        Mail::to($request->input('email'))->send($orderSubmittedEmail);
+        Mail::to($request->input('email'))->send($orderSubmittedEmailAdmin);
 
         return response()->json(['status' => 'success']);
     }

@@ -88,7 +88,7 @@
                             </li>
 
                             <li class="menu-item ">
-                                <a href="{{ route('service-categories.index') }}" class="menu-link">
+                                <a href="{{ route('services-enq.index') }}" class="menu-link">
                                     <div>Order enquiries</div>
                                 </a>
                             </li>

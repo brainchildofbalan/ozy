@@ -11,32 +11,49 @@
 
                 </h4>
                 <div class="w-100 d-flex">
+                    <a href="{{ route('orders.generateOrder', $orders->id) }}" class="btn btn-secondary me-2">Generate
+                        invoice</a>
 
-                    <form method="post" action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Placed']) }}"
-                        class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-primary me-2">Order Placed</button>
-                    </form>
-                    <form method="post" action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Shipped']) }}"
-                        class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-secondary me-2">Order Shipped</button>
-                    </form>
-                    <form method="post"
-                        action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Delivered']) }}"
-                        class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-info me-5">Order Delivered</button>
-                    </form>
+                    @if ($orders->pdf_link)
+                        <form method="post"
+                            action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Invoice']) }}"
+                            class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="btn btn-warning me-2">Send Invoice</button>
+                        </form>
+                    @endif
+
+
+                    @if ($orders->status !== 'Invoice')
+                        <form method="post"
+                            action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Placed']) }}"
+                            class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="btn btn-primary me-2">Order Placed</button>
+                        </form>
+                        <form method="post"
+                            action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Shipped']) }}"
+                            class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="btn btn-success me-2">Order Shipped</button>
+                        </form>
+                        <form method="post"
+                            action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Delivered']) }}"
+                            class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="btn btn-dark me-2">Order Delivered</button>
+                        </form>
+                    @endif
                     <form method="post"
                         action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Canceled']) }}"
                         class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
                         @csrf
                         @method('PUT')
-                        <button type="submit" class="btn btn-danger me-2">Order Canceled</button>
+                        <button type="submit" class="btn btn-danger me-2 ms-5">Order Canceled</button>
                     </form>
                 </div>
             </div>
@@ -101,8 +118,7 @@
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
 
-                    <a href="{{ route('orders.generateOrder', $orders->id) }}" class="btn btn-secondary">Generate
-                        invoice</a>
+
 
                 </div>
             </div>

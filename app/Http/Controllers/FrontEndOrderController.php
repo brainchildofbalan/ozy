@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderSubmitted;
+use App\Mail\OrderSubmittedAdmin;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FrontEndOrderController extends Controller
 {
@@ -28,8 +31,14 @@ class FrontEndOrderController extends Controller
         $data['notes'] = 'ordered';
         $data['other'] = 'ordered';
 
-        Order::create($data);
+        $order = Order::create($data);
 
+        $orderSubmittedEmail = new OrderSubmitted($order);
+        $orderSubmittedEmailAdmin = new OrderSubmittedAdmin($order);
+
+        // Use the Mail facade to send the email
+        Mail::to($request->input('email'))->send($orderSubmittedEmail);
+        Mail::to($request->input('email'))->send($orderSubmittedEmailAdmin);
         return response()->json(['status' => 'success']);
     }
 }

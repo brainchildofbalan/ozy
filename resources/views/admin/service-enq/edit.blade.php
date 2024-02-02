@@ -14,7 +14,7 @@
             </div>
         @endif --}}
 
-        <form method="post" action="{{ route('orders.update', $category->id) }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('services-enq.update', $category->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -22,7 +22,7 @@
                 <!-- HTML5 Inputs -->
                 <div class="card mb-3 flex-row justify-content-between align-items-center p-3">
                     <h5 class="card-header p-0">Edit orders</h5>
-                    <a href="{{ route('orders.index') }}" class="btn btn-primary">View all orders</a>
+                    <a href="{{ route('services-enq.index') }}" class="btn btn-primary">View all orders</a>
                 </div>
 
 

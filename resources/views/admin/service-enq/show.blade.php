@@ -2,45 +2,6 @@
 @section('title', 'Category')
 @section('content')
     <div class="flex-grow-1 container-p-x container-p-y">
-        <div class="card border-0 mb-3">
-            <div class="card-body">
-                <h4>Change order status
-
-
-
-
-                </h4>
-                <div class="w-100 d-flex">
-
-                    <form method="post" action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Placed']) }}"
-                        class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-primary me-2">Order Placed</button>
-                    </form>
-                    <form method="post" action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Shipped']) }}"
-                        class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-secondary me-2">Order Shipped</button>
-                    </form>
-                    <form method="post"
-                        action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Delivered']) }}"
-                        class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-info me-5">Order Delivered</button>
-                    </form>
-                    <form method="post"
-                        action="{{ route('orders.status', ['id' => $orders->id, 'status' => 'Canceled']) }}"
-                        class="d-inline" onsubmit="return confirm('Are you sure you want change the status?')">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-danger me-2">Order Canceled</button>
-                    </form>
-                </div>
-            </div>
-        </div>
         <div class="card border-0">
             <div class="card-body">
                 <h2 class="flex align-items-center">Order Details
@@ -57,19 +18,11 @@
                         </span>
                     @endif
                 </h2>
-                <p>First Name : <strong> {{ $orders->firstName }} </strong></p>
-                <p>Last Name : <strong> {{ $orders->lastName }} </strong></p>
-                <p>Phone : <strong> {{ $orders->phone }} </strong></p>
+                <p>First Name : <strong> {{ $orders->name }} </strong></p>
+                <p>Service : <strong> {{ $orders->service }} </strong></p>
+                <p>Phone : <strong> {{ $orders->number }} </strong></p>
                 <p>Email : <strong> {{ $orders->email }} </strong></p>
                 <p>Address : <strong> {{ $orders->address }} </strong></p>
-                <p>City : <strong> {{ $orders->city }} </strong></p>
-                <p>Country : <strong> {{ $orders->countryCode }} </strong></p>
-                <p>PIN Code : <strong> {{ $orders->postalCode }} </strong></p>
-                <p>State : <strong> {{ $orders->zone }} </strong></p>
-                <p>Status : <strong> {{ $orders->status }} </strong></p>
-                {{-- <p>Description : <strong> {{ $orders->description }} </strong></p> --}}
-                {{-- <p>Notes : <strong> {{ $orders->notes }} </strong></p> --}}
-                {{-- <p>Other : <strong> {{ $orders->other }} </strong></p> --}}
                 <p>Orderd at : <strong> {{ $orders->created_at }} </strong></p>
 
 
@@ -91,18 +44,16 @@
                 </div>
 
                 <div class="mt-3">
-                    <a href="{{ route('orders.index') }}" class="btn btn-secondary">Back to orders</a>
-                    <a href="{{ route('orders.edit', $orders->id) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('services-enq.index') }}" class="btn btn-secondary">Back to enquiry</a>
+                    <a href="{{ route('services-enq.edit', $orders->id) }}" class="btn btn-primary">Edit</a>
 
-                    <form method="post" action="{{ route('orders.destroy', $orders->id) }}" class="d-inline"
+                    <form method="post" action="{{ route('services-enq.destroy', $orders->id) }}" class="d-inline"
                         onsubmit="return confirm('Are you sure you want to delete this category?')">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
 
-                    <a href="{{ route('orders.generateOrder', $orders->id) }}" class="btn btn-secondary">Generate
-                        invoice</a>
 
                 </div>
             </div>

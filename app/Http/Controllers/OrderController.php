@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderPlaced;
+use App\Mail\OrderResponse;
+use App\Mail\OrderShipped;
 use App\Mail\OrderSubmitted;
 use App\Models\Order;
 use App\Models\ServicesCategory;
@@ -156,12 +159,22 @@ class OrderController extends Controller
 
   public function status($id, $status)
   {
-    $category = Order::findOrFail($id);
+    $data = Order::findOrFail($id);
     Order::where('id', intval($id))->update(['status' => $status]);
-    $orderSubmittedEmail = new OrderSubmitted();
+    $orderSubmittedEmail = new OrderResponse($data);
+    $orderPlaced = new OrderPlaced($data);
+    $orderShipped = new OrderShipped($data);
+
 
     // Use the Mail facade to send the email
-    Mail::to('brainchildofbalan@gmail.com')->send($orderSubmittedEmail);
+    if ($status === "Invoice") {
+      Mail::to('brainchildofbalan@gmail.com')->send($orderSubmittedEmail);
+    } else if ($status === "Placed") {
+      Mail::to('brainchildofbalan@gmail.com')->send($orderPlaced);
+    } else if ($status === "Shipped") {
+      Mail::to('brainchildofbalan@gmail.com')->send($orderShipped);
+    }
+    // Mail::to('brainchildofbalan@gmail.com')->send($orderSubmittedEmail);
     return redirect()->route('orders.show', $id)->with('success', 'Category updated successfully');
   }
 

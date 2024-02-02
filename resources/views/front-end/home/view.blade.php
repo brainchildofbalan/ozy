@@ -68,7 +68,7 @@
                                                 alt="">
                                         </div>
                                         <div class="product-text-wrapper">
-                                            <span class="item-left">3 Left</span>
+                                            <span class="item-left">{{ intval($product->quantity_in_stock) }}</span>
                                             <p>{{ $product->name }}</p>
                                         </div>
                                     </a>
@@ -134,7 +134,8 @@
                                 <div class="service-content">
                                     <h4>{{ $service->name }}</h4>
                                     <p>{{ $service->thumb_description }}</p>
-                                    <a href="/" class="explore-link">
+                                    <a href="/services/{{ Str::slug(explode(',', $service->category_id)[1]) }}/{{ $service->url }}"
+                                        class="explore-link">
                                         <span>Learn more</span>
                                         <span class="arrow-blue"></span>
                                     </a>
@@ -331,7 +332,7 @@
                                                 alt="">
                                         </div>
                                         <div class="product-text-wrapper">
-                                            <span class="item-left">3 Left</span>
+                                            <span class="item-left">{{ intval($product->quantity_in_stock) }}</span>
                                             <p>{{ $product->name }}</p>
                                         </div>
                                     </a>

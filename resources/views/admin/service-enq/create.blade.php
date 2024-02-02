@@ -14,7 +14,7 @@
             </div>
         @endif --}}
 
-        <form action="{{ route('orders.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('services-enq.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             {{-- <label for="name">Name:</label>
@@ -36,7 +36,7 @@
                 <!-- HTML5 Inputs -->
                 <div class="card mb-3 flex-row justify-content-between align-items-center p-3">
                     <h5 class="card-header p-0">Create new product</h5>
-                    <a href="{{ route('orders.index') }}" class="btn btn-primary">View all product</a>
+                    <a href="{{ route('services-enq.index') }}" class="btn btn-primary">View all product</a>
                 </div>
                 <div class="card mb-0">
                     <div class="card-body">
