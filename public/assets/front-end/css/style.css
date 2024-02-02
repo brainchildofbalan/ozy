@@ -19,7 +19,13 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 * {
     box-sizing: border-box;
 }
-
+.lazy-class{
+    opacity: 0;
+    transition: .3s opacity ease-in-out;
+}
+.lazyloaded{
+    opacity: 1;
+}
 body{
     font-family: 'Inter', sans-serif;
 /* font-family: 'Playfair Display', serif; */
