@@ -35,7 +35,8 @@
 
                 <div class="logo-wrapper">
                     <a href="/">
-                        <img src="{{ asset('/assets/front-end/images/header/logo.png') }}" alt="">
+                        <img src="{{ asset('/assets/front-end/images/header/ozyarabia-logo.png') }}" alt=""
+                            width="79px" height="48.84px">
                     </a>
                 </div>
 
