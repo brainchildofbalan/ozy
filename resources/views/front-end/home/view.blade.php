@@ -68,7 +68,7 @@
                                                 alt="">
                                         </div>
                                         <div class="product-text-wrapper">
-                                            <span class="item-left">{{ intval($product->quantity_in_stock) }}</span>
+                                            <span class="item-left">{{ intval($product->quantity_in_stock) }} Left</span>
                                             <p>{{ $product->name }}</p>
                                         </div>
                                     </a>
@@ -332,7 +332,7 @@
                                                 alt="">
                                         </div>
                                         <div class="product-text-wrapper">
-                                            <span class="item-left">{{ intval($product->quantity_in_stock) }}</span>
+                                            <span class="item-left">{{ intval($product->quantity_in_stock) }} Left</span>
                                             <p>{{ $product->name }}</p>
                                         </div>
                                     </a>
