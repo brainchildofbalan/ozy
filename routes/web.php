@@ -100,5 +100,5 @@ Route::prefix('admin')->group(function () {
 
 
 Route::get('/template', function () {
-    return view('emails.orders.submitted');
+    return view('emails.order.submitted');
 });

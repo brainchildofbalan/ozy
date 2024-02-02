@@ -38,7 +38,7 @@ class ServiceEnqAdmin extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.orders.service-admin',
+            view: 'emails.order.service-admin',
         );
     }
 

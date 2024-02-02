@@ -38,7 +38,7 @@ class OrderResponse extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.orders.invoice',
+            view: 'emails.order.invoice',
         );
     }
 

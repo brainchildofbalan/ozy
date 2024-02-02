@@ -7,6 +7,7 @@ use App\Mail\OrderResponse;
 use App\Mail\OrderShipped;
 use App\Mail\OrderSubmitted;
 use App\Models\Order;
+use App\Models\Products;
 use App\Models\ServicesCategory;
 use Dompdf\Dompdf;
 use Illuminate\Http\Request;
@@ -172,7 +173,17 @@ class OrderController extends Controller
     } else if ($status === "Placed") {
       Mail::to('brainchildofbalan@gmail.com')->send($orderPlaced);
     } else if ($status === "Shipped") {
+
       Mail::to('brainchildofbalan@gmail.com')->send($orderShipped);
+
+
+      $arrayOfObjects = json_decode($data->products);
+      foreach ($arrayOfObjects as $rule) {
+        $product_new = Products::find($rule->id);
+        if ($product_new) {
+          $product_new->decrement('quantity_in_stock', $rule->qty);
+        }
+      }
     }
     // Mail::to('brainchildofbalan@gmail.com')->send($orderSubmittedEmail);
     return redirect()->route('orders.show', $id)->with('success', 'Category updated successfully');
