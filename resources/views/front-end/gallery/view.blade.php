@@ -9,6 +9,7 @@
 
             <div class="gallery-banner">
                 {{-- <img src="" alt=""> --}}
+                <img src="{{ asset('/assets/front-end/images/gallery/gallery-banner.jpg') }}" alt="">
             </div>
 
 
@@ -88,8 +89,8 @@
                                         <div class="product-image-wrapper">
 
 
-                                            <img src="{{ Storage::url(explode(', ', $product->images)[0]) }}"
-                                                alt="">
+                                            <img data-src="{{ Storage::url(explode(', ', $product->images)[0]) }}"
+                                                alt="" loading="lazy" class="lazyload">
                                         </div>
                                         <div class="product-text-wrapper">
                                             <span class="item-left">{{ intval($product->quantity_in_stock) }} Left</span>

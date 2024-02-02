@@ -21,7 +21,9 @@
                     </div>
                 @endforeach
                 <div class="banner-item">
-                    <div class="banner-image"></div>
+                    <div class="banner-image">
+                        <img src="{{ asset('/assets/front-end/images/gallery/gallery.jpg') }}" alt="">
+                    </div>
                     <div class="banner-text font-second"> Gallery</div>
                     {{-- url --}}
                     <a href="/gallery" class="banner-link">

@@ -22,7 +22,9 @@
                     </div>
                 @endforeach
                 <div class="banner-item">
-                    <div class="banner-image"></div>
+                    <div class="banner-image">
+                        <img src="{{ asset('/assets/front-end/images/gallery/gallery.jpg') }}" alt="">
+                    </div>
                     <div class="banner-text font-second"> Gallery</div>
                     {{-- url --}}
                     <a href="/gallery" class="banner-link">
@@ -64,8 +66,8 @@
                                         <div class="product-image-wrapper">
 
 
-                                            <img src="{{ Storage::url(explode(', ', $product->images)[0]) }}"
-                                                alt="">
+                                            <img data-src="{{ Storage::url(explode(', ', $product->images)[0]) }}"
+                                                alt="" loading="lazy" class="lazyload">
                                         </div>
                                         <div class="product-text-wrapper">
                                             <span class="item-left">{{ intval($product->quantity_in_stock) }} Left</span>
@@ -328,8 +330,8 @@
                                         <div class="product-image-wrapper">
 
 
-                                            <img src="{{ Storage::url(explode(', ', $product->images)[0]) }}"
-                                                alt="">
+                                            <img data-src="{{ Storage::url(explode(', ', $product->images)[0]) }}"
+                                                alt="" loading="lazy" class="lazyload">
                                         </div>
                                         <div class="product-text-wrapper">
                                             <span class="item-left">{{ intval($product->quantity_in_stock) }} Left</span>
