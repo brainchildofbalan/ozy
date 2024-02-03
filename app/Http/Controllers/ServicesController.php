@@ -62,6 +62,7 @@ class ServicesController extends Controller
         ]);
 
         $data['order'] = Services::count() + 1;
+        $data['is_home'] = $request->input('is_home') ?? 0;
 
         // Handle image upload if needed
         if ($request->hasFile('image')) {
@@ -120,6 +121,8 @@ class ServicesController extends Controller
             'relative_products.required' => 'The :attribute field is required.',
 
         ]);
+
+        $data['is_home'] = $request->input('is_home') ?? 0;
 
         // Handle image upload if needed
         if ($request->hasFile('image')) {

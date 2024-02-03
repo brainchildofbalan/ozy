@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         $sub_url = null;
         $url = null;
-        $services = Services::orderBy('id', 'desc')->get();
+        $services = Services::where('is_home', 1)->orderBy('id', 'desc')->get();
         $products = Products::where('is_featured', 1)->orderBy('id', 'desc')->get();
         $productsValue = Products::where('is_valuable', 1)->orderBy('id', 'desc')->get();
         $categories = ProductSubCategory::all();

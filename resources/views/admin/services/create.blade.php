@@ -141,6 +141,22 @@
                                 @enderror
                             </div>
                         </div>
+                        {{-- is_home --}}
+                        <div class="mb-3 row">
+                            <label for="html5-text-input" class="col-md-2 col-form-label">Featured service</label>
+                            <div class="col-md-10">
+                                <input class="form-check-input @error('is_home') is-invalid @enderror" type="checkbox"
+                                    name="is_home" id="is_home" value="1" {{ old('is_home') ? 'checked' : '' }}>
+                                <label class="form-check-label ms-2" for="is_home">
+                                    Show in home page
+                                </label>
+                                @error('is_home')
+                                    <span class="invalid-feedback">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
 
 

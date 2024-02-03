@@ -1575,9 +1575,13 @@ textarea.checkout-form-controls{
     flex-direction: column;
     padding-bottom: 100%;
     position: relative;
-    
+    margin-bottom: 30px;
 }
-
+@media (min-width: 991px) {
+    .image-wrapper-slider{
+        margin-bottom: 0;
+    }
+}
 .image-wrapper-slider img{
     position: absolute;
     left: 0;
