@@ -89,7 +89,7 @@
 
                             <li class="menu-item ">
                                 <a href="{{ route('services-enq.index') }}" class="menu-link">
-                                    <div>Order enquiries</div>
+                                    <div>Service enquiries</div>
                                 </a>
                             </li>
 
@@ -140,6 +140,31 @@
                             <li class="menu-item ">
                                 <a href="{{ route('orders.index') }}" class="menu-link">
                                     <div>Orders</div>
+                                </a>
+                            </li>
+
+
+
+
+
+                        </ul>
+                    </li>
+
+                    <li class="menu-item @if (Str::contains(url()->full(), '/testimonials')) {{ 'active open' }} @endif">
+                        <a href="http://localhost:8001" class="menu-link menu-toggle">
+                            {{-- <i class="menu-icon tf-icons bx bx-home-circle"></i> --}}
+                            <div>Testimonials Manager</div>
+                            {{-- <div class="badge bg-danger rounded-pill ms-auto">5</div> --}}
+                        </a>
+
+
+                        <ul class="menu-sub">
+
+
+
+                            <li class="menu-item ">
+                                <a href="{{ route('testimonials.index') }}" class="menu-link">
+                                    <div>Testimonials</div>
                                 </a>
                             </li>
 

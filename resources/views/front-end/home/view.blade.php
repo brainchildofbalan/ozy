@@ -176,126 +176,33 @@
                 <div class="happy-customers-slider-inner">
                     <div class="happy-customers-slider-items">
 
-
-                        <div class="happy-customers-item">
-                            <div class="happy-customers-star">
-                                <div class="happy-customers-star-wrapper">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
+                        @if (count($testimonials) > 0)
+                            @foreach ($testimonials as $testimonial)
+                                <div class="happy-customers-item">
+                                    <div class="happy-customers-star">
+                                        <div class="happy-customers-star-wrapper">
+                                            @for ($i = 0; $i < 5; $i++)
+                                                <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
+                                                    alt="" class="@if ($i < intval($testimonial->star)) active @endif">
+                                            @endfor
+                                        </div>
+                                    </div>
+                                    <div class="happy-customers-content">
+                                        <p class="happy-customers-description">{{ $testimonial->description }}</p>
+                                        <h5 class="happy-customers-name font-second">{{ $testimonial->name }}</h5>
+                                        <span class="happy-customers-position">{{ $testimonial->designation }}</span>
+                                    </div>
                                 </div>
+                            @endforeach
+                        @else
+                            <div class="no-data-found">
+                                <span class="no-found-error-icon"></span>
+                                <h3 class="font-second"> Sorry!</h3>
+                                <p>No data found</p>
                             </div>
-                            <div class="happy-customers-content">
-                                <p class="happy-customers-description">Incorporating yoga into your routine contributes to
-                                    both physical and mental health, promoting a balanced and healthier.</p>
-                                <h5 class="happy-customers-name font-second">Lora Minsa</h5>
-                                <span class="happy-customers-position">Teacher</span>
-                            </div>
-                        </div>
 
 
-                        <div class="happy-customers-item">
-                            <div class="happy-customers-star">
-                                <div class="happy-customers-star-wrapper">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="happy-customers-content">
-                                <p class="happy-customers-description">Incorporating yoga into your routine contributes to
-                                    both physical and mental health, promoting a balanced and healthier.</p>
-                                <h5 class="happy-customers-name font-second">Lora Minsa</h5>
-                                <span class="happy-customers-position">Teacher</span>
-                            </div>
-                        </div>
-
-
-                        <div class="happy-customers-item">
-                            <div class="happy-customers-star">
-                                <div class="happy-customers-star-wrapper">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="happy-customers-content">
-                                <p class="happy-customers-description">Incorporating yoga into your routine contributes to
-                                    both physical and mental health, promoting a balanced and healthier.</p>
-                                <h5 class="happy-customers-name font-second">Lora Minsa</h5>
-                                <span class="happy-customers-position">Teacher</span>
-                            </div>
-                        </div>
-
-
-                        <div class="happy-customers-item">
-                            <div class="happy-customers-star">
-                                <div class="happy-customers-star-wrapper">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="happy-customers-content">
-                                <p class="happy-customers-description">Incorporating yoga into your routine contributes to
-                                    both physical and mental health, promoting a balanced and healthier.</p>
-                                <h5 class="happy-customers-name font-second">Lora Minsa</h5>
-                                <span class="happy-customers-position">Teacher</span>
-                            </div>
-                        </div>
-
-                        <div class="happy-customers-item">
-                            <div class="happy-customers-star">
-                                <div class="happy-customers-star-wrapper">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                    <img src="{{ asset('/assets/front-end/images/customers/01-star.svg') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="happy-customers-content">
-                                <p class="happy-customers-description">Incorporating yoga into your routine contributes to
-                                    both physical and mental health, promoting a balanced and healthier.</p>
-                                <h5 class="happy-customers-name font-second">Lora Minsa</h5>
-                                <span class="happy-customers-position">Teacher</span>
-                            </div>
-                        </div>
-
-
+                        @endif
 
                     </div>
                 </div>

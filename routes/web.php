@@ -16,6 +16,7 @@ use App\Http\Controllers\ProductSubCategoryController;
 use App\Http\Controllers\ServiceEnqController;
 use App\Http\Controllers\ServicesCategoryController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,6 +87,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('sub-categories', ProductSubCategoryController::class);
         Route::resource('services', ServicesController::class);
         Route::resource('orders', OrderController::class);
+        Route::resource('testimonials', TestimonialController::class);
         Route::resource('services-enq', ServiceEnqController::class);
         Route::get('orders/{id}/generate', [OrderController::class, 'generate'])->name('orders.generateOrder');;
         Route::post('orders/{id}/generate/pdf', [OrderController::class, 'storepdf'])->name('orders.storepdf');;

@@ -792,6 +792,10 @@ header{
     height: 15px;
     position: relative;
     margin-left: 5px;
+    opacity: .4;
+}
+.happy-customers-star-wrapper img.active{
+    opacity: 1;
 }
 
 .happy-customers-star-wrapper img:first-child{
