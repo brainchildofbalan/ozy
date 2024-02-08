@@ -63,14 +63,14 @@ class FrontEndProductController extends Controller
         $products = Products::where('url', $product)->first();
         $related = Products::where('id', '>', $products->id)
             ->orderBy('id')
-            ->limit(5)
+            ->limit(6)
             ->get();
 
         // Check if $related is empty
         if ($related->isEmpty()) {
             $related = Products::where('id', '<', $products->id)
                 ->orderByDesc('id') // Order by ID in descending order to get items with IDs less than $products->id
-                ->limit(5)
+                ->limit(6)
                 ->get();
         }
 
