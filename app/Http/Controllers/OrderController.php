@@ -169,12 +169,12 @@ class OrderController extends Controller
 
     // Use the Mail facade to send the email
     if ($status === "Invoice") {
-      Mail::to('brainchildofbalan@gmail.com')->send($orderSubmittedEmail);
+      Mail::to($data->email)->send($orderSubmittedEmail);
     } else if ($status === "Placed") {
-      Mail::to('brainchildofbalan@gmail.com')->send($orderPlaced);
+      Mail::to($data->email)->send($orderPlaced);
     } else if ($status === "Shipped") {
 
-      Mail::to('brainchildofbalan@gmail.com')->send($orderShipped);
+      Mail::to($data->email)->send($orderShipped);
 
 
       $arrayOfObjects = json_decode($data->products);
@@ -185,7 +185,7 @@ class OrderController extends Controller
         }
       }
     }
-    // Mail::to('brainchildofbalan@gmail.com')->send($orderSubmittedEmail);
+    // Mail::to($data->email)->send($orderSubmittedEmail);
     return redirect()->route('orders.show', $id)->with('success', 'Category updated successfully');
   }
 
