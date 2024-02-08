@@ -80,7 +80,7 @@ header{
 .menu-wrapper{
     width: auto;
     position: relative;
-    margin-right: 20px;
+    margin-right: 12px;
 }
 @media (max-width: 991px) {
     .menu-wrapper ul{
@@ -1322,6 +1322,199 @@ textarea.checkout-form-controls{
 }
 
 
+/* search */
+.search-wrapper{
+    position: relative;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: transparent;
+    background-color: transparent;
+}
+.search-wrapper::after{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.09);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(.8);
+    opacity: 0;
+    content: '';
+    transition: .3s all ease-in-out;
+}
+
+.search-wrapper:hover::after{
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.search-main{
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 73px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: .3s all ease-in-out;
+}
+.search-main.active{
+    transform: translateY(0%);
+}
+.search-input{
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+.search-input form{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-input input{
+    height: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.146);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 12px;
+    font-size: 16px;
+    line-height: 1;
+    width: 100%;
+    flex: 1;
+}
+.search-input input:focus{
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+
+.search-input button{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    position: relative;
+    margin-left: 10px;
+    border-radius: 5px;
+    border-color: transparent;
+    background-color: #00476f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input button.close-search{
+    background-color: #eeeeee;
+}
+.search-input button img{
+    filter: invert(100%);
+}
+
+.search-click{
+    margin-right: 15px;
+}
+
+.search-main-items{
+    width: 100%;
+    background-color: rgb(240 242 243);
+    position: fixed;
+    top: 73px;
+    left: 0;
+    max-height: 400px;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    /* transform: translateY(-120%); */
+    opacity: 0;
+    transition: .3s all ease-in-out;
+    overflow: auto;
+    /* box-shadow: 0px 8px 6px  rgba(52,52,52,.06); */
+    padding: 15px 0px;
+}
+#itemsContainer{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.search-main-items.active{
+
+    opacity: 1;
+}
+
+.search-input-items{
+    width: 100%;
+    position: relative;
+}
+.search-input-items .item{
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 10px;
+    padding-right: 20px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.search-input-items .item:last-child{
+    margin-bottom: 0;
+}
+
+.search-input-items .item img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 3px;
+    margin-right: 20px;
+    border:1px solid #eaeaea ;
+}
+.search-input-items .item a{
+    margin-left: auto;
+    padding-left: 15px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+
+}
+
+.search-input-items .item a::after{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .menu-offset-items ul{
     width: 100%;
     position: relative;
@@ -1423,7 +1616,7 @@ textarea.checkout-form-controls{
     }
 }
 
-
+.close-search,
 .offset-close,
 .menu-offset-close{
     width: 30px;
@@ -1437,6 +1630,7 @@ textarea.checkout-form-controls{
     justify-content: center;
     align-items: center;
 }
+.close-search::after,
 .offset-close::after,
 .menu-offset-close::after{
     width: 20px;
@@ -1447,6 +1641,7 @@ textarea.checkout-form-controls{
     display: block;
     rotate: -45deg;
 }
+.close-search::before,
 .offset-close::before,
 .menu-offset-close::before{
     width: 20px;
@@ -1609,7 +1804,7 @@ textarea.checkout-form-controls{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #959595;
+    border: 1px solid rgba(149, 149, 149, 0.235);
     transition: .3s transform ease-in-out;
 }
 .product-image-slider .swiper-button-prev.swiper-button-lock,

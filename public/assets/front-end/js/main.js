@@ -736,9 +736,110 @@ function openModelService() {
 
 
 
+const searchFn = () => {
+    const searchWrapper = document.querySelector('.search-wrapper');
+    if (searchWrapper) {
+
+        const searchOffset = document.querySelector('.search-main');
+        const searchOffsetInput = document.querySelector('.search-main input');
+        const searchMain = document.querySelector('.search-main-items');
+        const closeSearch = document.querySelector('.close-search');
+
+
+        const container = document.getElementById('itemsContainer');
+        searchWrapper.addEventListener('click', () => {
+            searchOffset.classList.add('active');
+        })
+        closeSearch.addEventListener('click', () => {
+            searchOffset.classList.remove('active');
+            searchMain.classList.remove('active');
+            searchOffsetInput.value = ''
+        })
+
+        searchOffsetInput.addEventListener('keyup', () => {
+
+            const formData = new FormData(document.getElementById('searchFrom'));
+            console.log(searchOffsetInput.value)
+
+            if (searchOffsetInput.value !== '') {
+                searchMain.classList.add('active')
+            } else {
+                searchMain.classList.remove('active')
+            }
+
+            var jsonData = {};
+            formData.forEach(function (value, key) {
+                jsonData[key] = value;
+            });
+
+
+
+            if (searchOffsetInput.value !== '') {
+
+                fetch('/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': main_token
+                    },
+
+                    body: JSON.stringify(jsonData)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the response from the server
+                        container.innerHTML = '';
+                        if (data.products.length > 0) {
+                            data.products.forEach(item => {
+                                // Create elements
+                                const itemDiv = document.createElement('div');
+                                itemDiv.classList.add('item');
+
+
+
+                                const imageElement = document.createElement('img');
+                                imageElement.src = `/storage/${item.images.split(', ')[0]}`;
+
+                                const nameHeading = document.createElement('h2');
+                                nameHeading.textContent = item.name;
+
+                                const linkElement = document.createElement('a');
+                                linkElement.href = `/products/${item.category_id.split(',')[1]}/${item.sub_category_id.split(',')[1]}/${item.url}`
+                                linkElement.textContent = "Read more";
+
+                                // Append elements to itemDiv
+                                itemDiv.appendChild(imageElement);
+                                itemDiv.appendChild(nameHeading);
+                                itemDiv.appendChild(linkElement);
+
+                                // Append itemDiv to container
+
+                                container.appendChild(itemDiv);
+                            })
+                        }
+                        else {
+                            container.innerHTML = '';
+                            searchMain.classList.remove('active');
+                        }
+
+
+
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+        })
+    }
+}
+
+
+
+
 cartLoader();
 clickOpenCheckoutCanvas();
 clickOpenCheckoutMenuCanvas();
 redirectToHome();
 productSlider();
 openModelService();
+searchFn()

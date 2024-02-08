@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spa Products in UAE, Spa Product Suppliers Abu Dhabi | Ozyarabia</title>
+    <link rel="preload" as="image" href="{{ asset('/assets/front-end/images/header/ozyarabia-logo.png') }}">
     <meta name="description"
         content="Trusted spa products & spa equipment suppliers in  Abu Dhabi, UAE. We offer skin care products, massage oils, beauty products and accessories, disposables, spa furniture and more.  Avail Premium quality spa consumables in reasonable prices in the UAE">
     <meta name="keywords"
@@ -26,9 +27,38 @@
     <link rel="stylesheet" href="{{ asset('/assets/front-end/css/bootstrap.min.css') }}?v={{ env('CSS_VERSION') }}">
     <link rel="stylesheet" href="{{ asset('/assets/front-end/css/swiper-bundle.min.css') }}?v={{ env('CSS_VERSION') }}">
     <link rel="stylesheet" href="{{ asset('/assets/front-end/css/style.css') }}?v={{ env('CSS_VERSION') }}">
+
 </head>
 
 <body>
+
+
+    {{-- seach canvas --}}
+    <div class="search-main">
+        <div class="container">
+            <div class="search-input">
+                <form id="searchFrom">
+                    <input type="search" name="search-products" id="search-products" placeholder="Search here...">
+                    {{-- <button type="submit">
+                        <img src="{{ asset('/assets/front-end/images/header/search.svg') }}" alt="Product searchs"
+                            width="20px" height="20px">
+                    </button> --}}
+
+                </form>
+                <button class="close-search" type=""></button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="search-main-items">
+        <div class="container">
+            <div class="search-input-items">
+                <div id="itemsContainer"></div>
+            </div>
+        </div>
+    </div>
+
     <header class="w-100 relative d-flex align-items-center">
         <div class="container h-100">
             <div class="w-100 d-flex align-items-center h-100">
@@ -86,6 +116,8 @@
                         <li>
                             <a href="/">Contact Us</a>
                         </li>
+
+
                         <li>
                             <a href="/gallery" class="gallery-btn">
                                 <span>
@@ -96,6 +128,12 @@
                     </ul>
 
 
+                </div>
+                <div class="search-click">
+                    <button class="search-wrapper">
+                        <img src="{{ asset('/assets/front-end/images/header/search.svg') }}" alt="Product searchs"
+                            width="20px" height="20px">
+                    </button>
                 </div>
                 <div class="cart-icon">
                     <span class="cart-icon-nums inc-num">1</span>
@@ -368,5 +406,8 @@
 <script src="{{ asset('/assets/front-end/js/swiper-bundle.min.js') }}?v={{ env('CSS_VERSION') }}"></script>
 <script src="{{ asset('/assets/front-end/js/main.js') }}?v={{ env('CSS_VERSION') }}"></script>
 <script src="{{ asset('/assets/front-end/js/lazysizes.min.js') }}?v={{ env('CSS_VERSION') }}"></script>
+<script>
+    var main_token = '{{ csrf_token() }}';
+</script>
 
 </html>

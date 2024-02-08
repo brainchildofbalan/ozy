@@ -13,6 +13,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductSubCategoryController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServiceEnqController;
 use App\Http\Controllers\ServicesCategoryController;
 use App\Http\Controllers\ServicesController;
@@ -64,6 +65,7 @@ Route::get('/gallery/{url}/{sub_url}', [GalleryController::class, 'SubCategory']
 
 Route::post('/place-order', [FrontEndOrderController::class, 'saveOrder'])->name('products.saveOrder');
 Route::post('/place-enq', [FrontEndServicesController::class, 'saveEnq'])->name('services.saveEnq');
+Route::post('/search', [SearchController::class, 'index'])->name('search.index');
 
 
 Route::prefix('admin')->group(function () {
