@@ -86,8 +86,8 @@
 
                     <div class="info-main">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo maxime odio quis eos optio
-                            exercitationem
+                            The price for this item is currently unavailable. You can add it to your cart and inquire about
+                            ordering by reaching out to our customer support team.
                         </p>
                     </div>
                     <div class="content-wrapper">
