@@ -749,6 +749,8 @@ const searchFn = () => {
         const container = document.getElementById('itemsContainer');
         searchWrapper.addEventListener('click', () => {
             searchOffset.classList.add('active');
+            searchOffsetInput.focus();
+
         })
         closeSearch.addEventListener('click', () => {
             searchOffset.classList.remove('active');
