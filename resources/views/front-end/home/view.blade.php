@@ -67,7 +67,7 @@
 
 
                                             <img data-src="{{ Storage::url(explode(', ', $product->images)[0]) }}"
-                                                alt="" loading="lazy" class="lazyload lazy-class">
+                                                alt="{{ $product->name }}" loading="lazy" class="lazyload lazy-class">
                                         </div>
                                         <div class="product-text-wrapper">
                                             <span class="item-left">{{ intval($product->quantity_in_stock) }} Left</span>
@@ -130,7 +130,7 @@
                                 class="service-main-wrapper">
                                 <div class="service-image-wrapper">
                                     <div class="service-image-inner">
-                                        <img src="{{ Storage::url($service->image) }}" alt="">
+                                        <img src="{{ Storage::url($service->image) }}" alt={{ $service->name }}>
                                     </div>
                                 </div>
                                 <div class="service-content">
@@ -238,7 +238,7 @@
 
 
                                             <img data-src="{{ Storage::url(explode(', ', $product->images)[0]) }}"
-                                                alt="" loading="lazy" class="lazyload lazy-class">
+                                                alt="{{ $product->name }}" loading="lazy" class="lazyload lazy-class">
                                         </div>
                                         <div class="product-text-wrapper">
                                             <span class="item-left">{{ intval($product->quantity_in_stock) }} Left</span>

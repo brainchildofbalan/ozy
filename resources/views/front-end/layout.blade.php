@@ -186,7 +186,7 @@
                                     <a href="/contact-us">Contact us</a>
                                 </li>
                                 <li>
-                                    <a href="/contact-us">gallery</a>
+                                    <a href="/gallery">gallery</a>
                                 </li>
                             </ul>
                         </div>
@@ -196,34 +196,24 @@
                             </h3>
                             <div class="footer-multiple-links">
                                 <ul class="common-footer-links">
-                                    <li>
-                                        <a href="/">Yoga</a>
-                                    </li>
-                                    <li>
-                                        <a href="/">Training</a>
-                                    </li>
-                                    <li>
-                                        <a href="/">Spa</a>
-                                    </li>
-                                    <li>
-                                        <a href="/">Hospital</a>
-                                    </li>
+
+                                    @isset($service_category)
+                                        @foreach ($service_category as $item)
+                                            <li class="menu"><a
+                                                    href="/services/{{ $item->url }}">{{ $item->name }}</a></li>
+                                        @endforeach
+                                    @endisset
+
 
                                 </ul>
 
                                 <ul class="common-footer-links">
-                                    <li>
-                                        <a href="/">Meditation</a>
-                                    </li>
-                                    <li>
-                                        <a href="/">Natural wellness</a>
-                                    </li>
-                                    <li>
-                                        <a href="/">Hotel</a>
-                                    </li>
-                                    <li>
-                                        <a href="/">Gallery</a>
-                                    </li>
+                                    @isset($product_category)
+                                        @foreach ($product_category as $item)
+                                            <li><a href="/products/{{ $item->url }}">{{ $item->name }}</a></li>
+                                        @endforeach
+                                    @endisset
+
 
                                 </ul>
                             </div>

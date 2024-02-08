@@ -94,7 +94,7 @@
                                     class="service-main-wrapper">
                                     <div class="service-image-wrapper">
                                         <div class="service-image-inner">
-                                            <img src="{{ Storage::url($service->image) }}" alt="">
+                                            <img src="{{ Storage::url($service->image) }}" alt={{ $service->name }}>
                                         </div>
                                     </div>
                                     <div class="service-content">

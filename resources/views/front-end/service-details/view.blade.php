@@ -47,7 +47,7 @@
 
 
                         <div class="service-image-wrapper-detail">
-                            <img src="{{ Storage::url($services->image) }}" alt="">
+                            <img src="{{ Storage::url($services->image) }}" alt="{{ $services->name }}">
                         </div>
 
                         <div class="service-content-wrapper">

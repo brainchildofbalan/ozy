@@ -51,7 +51,7 @@
                                 @foreach (explode(', ', $products->images) as $image)
                                     <div class="swiper-slide">
                                         <div class="image-wrapper-slider">
-                                            <img src="{{ Storage::url($image) }}" alt="">
+                                            <img src="{{ Storage::url($image) }}" alt="{{ $products->name }}">
                                         </div>
                                     </div>
                                 @endforeach
@@ -78,7 +78,8 @@
                     </h3>
                     <div class="button-wrapper">
                         <button class="product-add-cart-btn" onclick="addToCart('{{ $products->product_code }}')">
-                            <span> <img src="{{ asset('/assets/front-end/images/header/cart.svg') }}" alt=""></span>
+                            <span> <img src="{{ asset('/assets/front-end/images/header/cart.svg') }}"
+                                    alt=""></span>
                             <span>Add to cart</span>
                         </button>
                         {{-- <a href="" class="whatsap-message">
