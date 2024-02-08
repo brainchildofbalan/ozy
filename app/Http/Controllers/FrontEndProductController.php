@@ -61,6 +61,20 @@ class FrontEndProductController extends Controller
     public function fetchSingle($url, $sub_url, $product)
     {
         $products = Products::where('url', $product)->first();
-        return view('front-end.products-details.view', compact('products'));
+        $related = Products::where('id', '>', $products->id)
+            ->orderBy('id')
+            ->limit(5)
+            ->get();
+
+        // Check if $related is empty
+        if ($related->isEmpty()) {
+            $related = Products::where('id', '<', $products->id)
+                ->orderByDesc('id') // Order by ID in descending order to get items with IDs less than $products->id
+                ->limit(5)
+                ->get();
+        }
+
+
+        return view('front-end.products-details.view', compact('products', 'related'));
     }
 }
