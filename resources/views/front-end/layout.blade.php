@@ -76,11 +76,11 @@
                         <li>
                             <a href="/">Home</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="/">About Us</a>
-                        </li>
+                        </li> --}}
                         <li class="have-menu">
-                            <a href="/">Services</a>
+                            <a href="/services">Services</a>
                             <div class="menu-child">
                                 <ul>
 
@@ -97,7 +97,7 @@
                             </div>
                         </li>
                         <li class="have-menu">
-                            <a href="/">Products</a>
+                            <a href="/products">Products</a>
                             <div class="menu-child">
                                 <ul>
 
@@ -113,9 +113,9 @@
                                 </ul>
                             </div>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="/">Contact Us</a>
-                        </li>
+                        </li> --}}
 
 
                         <li>
@@ -179,12 +179,12 @@
 
 
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="/about-us">About us</a>
-                                </li>
-                                <li>
+                                </li> --}}
+                                {{-- <li>
                                     <a href="/contact-us">Contact us</a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a href="/gallery">gallery</a>
                                 </li>
@@ -219,28 +219,51 @@
                             </div>
                         </div>
                         <div class="footer-link-social">
+
+
                             <h3 class="footer-heading font-second">
-                                Follow us on
+                                Connact with us
                             </h3>
+
+                            <ul class="common-footer-links">
+                                <li>
+                                    Address : <a href="https://maps.app.goo.gl/dGpKWTjMmWjPs1K87" target="_blank">
+                                        Kuwait - Abraq Khaitan -
+                                        Street 22 - Block 9 -
+                                        Abdulaziz Ahamad Al-Qadah
+                                        - Off. 13 - Mezzanine
+
+
+
+                                </li>
+                                <li>
+                                    </a>
+
+                                    Mobile : <a href="tel:+965 6045 9575" target="_blank">
+                                        +965 6045 9575
+                                    </a>
+                                </li>
+                                <li>
+                                    </a>
+
+                                    Email : <a href="mailto:info@ozyarabia.com" target="_blank">
+                                        mailto:info@ozyarabia.com
+                                    </a>
+                                </li>
+                            </ul>
+
+
+
+
                             <ul class="footer-social-media-links">
                                 <li>
-                                    <a href="/">
+                                    <a href="https://www.facebook.com/ozyarabia.me" target="_blank">
                                         <img src="{{ asset('/assets/front-end/images/footer/facebook.svg') }}"
                                             alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="/">
+                                    <a href="https://www.instagram.com/ozyarabia.me/" target="_blank">
                                         <img src="{{ asset('/assets/front-end/images/footer/instagram.svg') }}"
-                                            alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="/">
-                                        <img src="{{ asset('/assets/front-end/images/footer/twitter.svg') }}"
-                                            alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="/">
-                                        <img src="{{ asset('/assets/front-end/images/footer/youtube.svg') }}"
                                             alt=""></a>
                                 </li>
                             </ul>
@@ -353,26 +376,25 @@
         <ul>
             <li>
                 {{-- whatsapp --}}
-                <a href="">
+                <a href="https://wa.me/+96560459575" target="_blank">
                     <img src="{{ asset('/assets/front-end/images/social-links/whatsapp.svg') }}" />
                 </a>
             </li>
             <li>
                 {{-- instagram --}}
-                <a href="">
+                <a href="https://www.instagram.com/ozyarabia.me/" target="_blank">
                     <img src="{{ asset('/assets/front-end/images/social-links/instagram.svg') }}" />
                 </a>
             </li>
             <li>
                 {{-- call --}}
-                <a href="">
+                <a href="tel:+965 6045 9575" target="_blank">
                     <img src="{{ asset('/assets/front-end/images/social-links/calling.svg') }}" />
                 </a>
             </li>
             <li>
-                {{-- youtube --}}
-                <a href="">
-                    <img src="{{ asset('/assets/front-end/images/social-links/youtube.svg') }}" />
+                <a href="https://www.facebook.com/ozyarabia.me" target="_blank">
+                    <img src="{{ asset('/assets/front-end/images/social-links/facebook.svg') }}" />
                 </a>
             </li>
         </ul>
