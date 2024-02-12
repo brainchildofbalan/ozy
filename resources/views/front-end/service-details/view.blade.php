@@ -118,8 +118,7 @@
 
                     <div class="enq-form-group">
                         <button type="submit" id="" class="checkout-form-btn"
-                            onclick="validateFormService()">Place
-                            order</button>
+                            onclick="validateFormService()">Submit enquiry</button>
                     </div>
 
                 </div>
