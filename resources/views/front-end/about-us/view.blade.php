@@ -46,7 +46,8 @@
                                 environmentally good products.
                             </p>
                             <a href="/products" class="about-us-btn">
-                                Find products
+                                <span>Find products</span>
+                                <span class="arrow"></span>
                             </a>
                         </div>
                     </div>
