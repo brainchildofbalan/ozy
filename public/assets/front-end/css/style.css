@@ -444,7 +444,7 @@ header{
     width: 100%;
     position: relative;
     background-color: #f3f6f8;
-    padding: 35px 0px;
+    padding: 25px 0px 30px;
 }
 
 .product-section-wrapper{
@@ -501,6 +501,12 @@ header{
     --bs-gutter-x: 10px;
     --bs-gutter-y: 10px;
 }
+@media (min-width: 991px) {
+    .product-section-list-wrapper{
+        --bs-gutter-x: 15px;
+        --bs-gutter-y: 15px;
+    } 
+}
 
 
 
@@ -524,7 +530,7 @@ header{
 }
 @media (min-width : 991px) {
     .product-wrapper{
-        padding: 10px;
+        padding: 15px;
     }
 }
 .product-links-wrapper{
@@ -559,7 +565,7 @@ header{
 .product-text-wrapper .item-left{
     background-color: #F4F1E2;
     width: max-content;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 1;
     text-decoration: none;
     padding: 6px 8px;
@@ -568,12 +574,25 @@ header{
     margin-bottom: 8px;
 }
 
+@media (min-width: 991px) {
+    .product-text-wrapper .item-left{
+        margin-bottom: 12px;
+    }
+}
+
 .product-text-wrapper p {
     font-size: 16px;
     line-height: 1.5;
     color: #000;
     text-decoration: none;
     font-weight: 500;
+}
+
+@media (min-width: 991px) {
+    .product-text-wrapper p {
+        font-size: 14px;
+    }
+
 }
 .whatsap-message{
     width: 34px;
@@ -593,6 +612,12 @@ header{
     flex-wrap: wrap;
     margin-top: auto;
     padding-top: 10px;
+}
+@media (min-width: 991px) {
+    .product-link-wrapper{
+        padding-top: 14px;
+    }
+    
 }
 .product-add-cart-btn{
     width: 100%;
@@ -615,7 +640,7 @@ header{
     height: 15px;
     object-fit: contain;
     object-position: center;
-    margin-right: 5px;
+    margin-right: 11px;
     filter: invert(100%);
 }
 
@@ -631,7 +656,7 @@ header{
 .service-section{
     width: 100%;
     position: relative;
-    padding: 35px 0px;
+    padding: 25px 0px 30px;
 }
 .service-section-wrapper{
     width: 100%;
@@ -2060,7 +2085,7 @@ textarea.checkout-form-controls{
 .service-details-inner{
     margin-left: auto;
     margin-right: auto;
-    padding: 50px 0px;
+    padding: 30px 0px;
 }
 
 .service-image-wrapper-detail{
@@ -2173,7 +2198,7 @@ textarea.checkout-form-controls{
     width: 100%;
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 
 
