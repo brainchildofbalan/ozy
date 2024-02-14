@@ -76,9 +76,9 @@
                         <li>
                             <a href="/">Home</a>
                         </li>
-                        {{-- <li>
-                            <a href="/">About Us</a>
-                        </li> --}}
+                        <li>
+                            <a href="/about-us">About Us</a>
+                        </li>
                         <li class="have-menu">
                             <a href="/services">Services</a>
                             <div class="menu-child">
@@ -179,9 +179,9 @@
 
 
                                 </li>
-                                {{-- <li>
+                                <li>
                                     <a href="/about-us">About us</a>
-                                </li> --}}
+                                </li>
                                 {{-- <li>
                                     <a href="/contact-us">Contact us</a>
                                 </li> --}}
@@ -330,7 +330,7 @@
                     <a href="/">Home <span class="arrow"></span></a>
                 </li>
                 <li>
-                    <a href="/">About us <span class="arrow"></span></a>
+                    <a href="/about-us">About us <span class="arrow"></span></a>
                 </li>
                 <li>
                     <a href="/services">Services <span class="arrow"></span></a>

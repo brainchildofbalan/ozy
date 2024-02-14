@@ -47,6 +47,9 @@ Route::get('/success-service', function () {
     return view('front-end.success-service.view');
 });
 
+
+Route::get('/about-us', [HomeController::class, 'aboutUs']);
+
 Route::get('/products/{url}/{sub_url}/{product}', [FrontEndProductController::class, 'fetchSingle']);
 Route::get('/products/fetch/{id}', [FrontEndProductController::class, 'fetchAll']);
 Route::get('/products/{url}', [FrontEndProductController::class, 'category']);

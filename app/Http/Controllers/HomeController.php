@@ -23,4 +23,15 @@ class HomeController extends Controller
         $categoriesMain = Menu::orderBy('order')->get();
         return view('front-end.home.view', compact('services', 'categories', 'categoriesMain', 'url', 'sub_url', 'products', 'productsValue', 'testimonials'));
     }
+
+    public function aboutUs()
+    {
+        $sub_url = null;
+        $url = null;
+        $services = Services::orderByDesc('created_at')->take(4)->get();
+        $products = Products::orderByDesc('created_at')->take(12)->get();
+        $testimonials = Testimonial::where('created_at')->take(6)->get();
+
+        return view('front-end.about-us.view', compact('services', 'products', 'testimonials'));
+    }
 }
