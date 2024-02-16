@@ -49,6 +49,7 @@ Route::get('/success-service', function () {
 
 
 Route::get('/about-us', [HomeController::class, 'aboutUs']);
+Route::get('/contact-us', [HomeController::class, 'contactUs']);
 
 Route::get('/products/{url}/{sub_url}/{product}', [FrontEndProductController::class, 'fetchSingle']);
 Route::get('/products/fetch/{id}', [FrontEndProductController::class, 'fetchAll']);

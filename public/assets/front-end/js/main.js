@@ -706,6 +706,139 @@ function validateFormService() {
 
 
 
+
+function validateFormContact() {
+
+
+
+
+
+    var form = document.getElementById("ContactFrom");
+
+    // Prevent the default form submission and handle it in your custom way
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        //code
+
+        // Reset error messages
+        document.querySelectorAll('.error').forEach(error => error.textContent = '');
+
+        let isValid = true;
+
+        // Validate name ---- start
+        const nameInput = document.getElementById('nameField').value;
+        var nameRegex = /^[A-Za-z]+(?: [A-Za-z]+)*$/;
+
+        if (nameInput === '') {
+            document.getElementById('nameError').textContent = 'Please enter your name.';
+            isValid = false;
+        }
+
+        if (!nameRegex.test(nameInput) && nameInput !== '') {
+            document.getElementById('nameError').textContent = 'Please enter a valid name.';
+            isValid = false;
+        }
+
+        // Validate name ---- end
+
+
+        // Validate mobile number --- start
+        const mobileInput = document.getElementById('numberField').value;
+        // var phoneNumberRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+        const phoneRegex = /^(\+\d{1,2})?\d{10,}$/;
+
+        if (mobileInput === '') {
+            document.getElementById('errorNumber').textContent = 'Please enter your number.';
+            isValid = false;
+        }
+        if (!phoneRegex.test(mobileInput) && mobileInput !== '') {
+            document.getElementById('errorNumber').textContent = 'Please enter a valid mobile number.';
+            isValid = false;
+        }
+
+
+
+
+
+
+
+
+        // Validate email
+
+        const mailInput = document.getElementById('emailField').value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+
+        if (mailInput === '') {
+            document.getElementById('mailError').textContent = 'mail required.';
+            isValid = false;
+        }
+
+        if (!emailRegex.test(mailInput) && mailInput !== '') {
+            document.getElementById('mailError').textContent = 'Please enter a valid email address.';
+            isValid = false;
+        }
+
+
+        let itemError = []
+        const errorItem = document.querySelectorAll(`span.error`).forEach(element => {
+            if (element.innerHTML !== '') {
+                itemError.push(element)
+            }
+        });
+
+        if (itemError.length > 0) {
+            focusScroll(itemError[0].parentElement.children[0])
+
+            console.log(itemError)
+        }
+
+
+
+
+        // // If form is valid, make a POST request
+        if (isValid) {
+            var jsonData = {};
+            const formData = new FormData(document.getElementById('ContactFrom'));
+            formData.forEach(function (value, key) {
+                jsonData[key] = value;
+            });
+            // console.log(formData)
+            formData.forEach((value, key) => {
+                console.log(`${key}: ${value}`);
+            });
+
+
+            const dataMain = { ...jsonData }
+            console.log(dataMain)
+            fetch('/contact-enq', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': main_token
+                },
+                body: JSON.stringify(dataMain)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response from the server
+                    if (data?.status === "success") {
+                        localStorage.removeItem('cart');
+                        document.getElementById('serviceFrom').reset();
+                        window.location.href = '/success-service';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    });
+}
+
+
+
 function openModelService() {
 
     const enq_btn = document.querySelector('.enq-btn');

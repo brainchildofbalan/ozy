@@ -113,9 +113,9 @@
                                 </ul>
                             </div>
                         </li>
-                        {{-- <li>
-                            <a href="/">Contact Us</a>
-                        </li> --}}
+                        <li>
+                            <a href="/contact-us">Contact Us</a>
+                        </li>
 
 
                         <li>
@@ -182,9 +182,9 @@
                                 <li>
                                     <a href="/about-us">About us</a>
                                 </li>
-                                {{-- <li>
+                                <li>
                                     <a href="/contact-us">Contact us</a>
-                                </li> --}}
+                                </li>
                                 <li>
                                     <a href="/gallery">gallery</a>
                                 </li>
@@ -228,6 +228,7 @@
                             <ul class="common-footer-links">
                                 <li>
                                     Address : <a href="https://maps.app.goo.gl/dGpKWTjMmWjPs1K87" target="_blank">
+                                        Fahad Marzoq AIRashidi GENERAL TRAD. & CONT.CO.,
                                         Kuwait - Abraq Khaitan -
                                         Street 22 - Block 9 -
                                         Abdulaziz Ahamad Al-Qadah
@@ -247,7 +248,7 @@
                                     </a>
 
                                     Email : <a href="mailto:info@ozyarabia.com" target="_blank">
-                                        mailto:info@ozyarabia.com
+                                        info@ozyarabia.com
                                     </a>
                                 </li>
                             </ul>

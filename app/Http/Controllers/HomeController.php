@@ -34,4 +34,10 @@ class HomeController extends Controller
 
         return view('front-end.about-us.view', compact('services', 'products', 'testimonials'));
     }
+
+    public function contactUs()
+    {
+        $products = Products::orderByDesc('created_at')->take(12)->get();
+        return view('front-end.contact-us.view', compact('products'));
+    }
 }

@@ -16,7 +16,7 @@
                             <div class="checkout-from">
                                 <div class="checkout-form-group">
                                     <input type="text" name="phone" id="numberField" class="checkout-form-controls"
-                                        placeholder="Mobile number eg(+971-XX-1234567)">
+                                        placeholder="Mobile number eg(+965 XXXXX575)">
                                     <span class="error" id="errorNumber"></span>
                                 </div>
                             </div>
@@ -43,9 +43,9 @@
                                         placeholder="Email">
                                     <span class="error" id="mailError"></span>
                                 </div>
-                                <div class="checkout-form-group">
+                                <div class="checkout-form-group d-none">
                                     <input type="text" name="countryCode" id="countryField"
-                                        class="checkout-form-controls" placeholder="Country">
+                                        class="checkout-form-controls " placeholder="Country" value="hidden">
                                     <span class="error" id="countryError"></span>
                                 </div>
 
@@ -55,19 +55,19 @@
                                     <span class="error" id="addressError"></span>
 
                                 </div>
-                                <div class="checkout-form-group qutr">
-                                    <input type="text" name="city" id="cityField" class="checkout-form-controls"
-                                        placeholder="City">
+                                <div class="checkout-form-group qutr d-none">
+                                    <input type="text" name="city" id="cityField" class="checkout-form-controls "
+                                        placeholder="City" value="hidden">
                                     <span class="error" id="cityError"></span>
                                 </div>
-                                <div class="checkout-form-group qutr">
-                                    <input type="text" name="zone" id="stateField" class="checkout-form-controls"
-                                        placeholder="State">
+                                <div class="checkout-form-group qutr d-none">
+                                    <input type="text" name="zone" id="stateField" class="checkout-form-controls "
+                                        placeholder="State" value="hidden">
                                     <span class="error" id="stateError"></span>
                                 </div>
-                                <div class="checkout-form-group qutr">
-                                    <input type="text" name="postalCode" id="pinField" class="checkout-form-controls"
-                                        placeholder="PIN code">
+                                <div class="checkout-form-group qutr d-none">
+                                    <input type="text" name="postalCode" id="pinField" class="checkout-form-controls "
+                                        placeholder="PIN code" value="000000">
                                     <span class="error" id="pinError"></span>
                                 </div>
 
