@@ -955,6 +955,11 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endCo
     flex-direction: column;
     padding: 80px 0px;
 }
+@media (max-width: 991px) {
+.contact-wrapper{
+    padding: 20px 0px;
+}
+}
 
 .contact-inner{
     width: 100%;
@@ -973,6 +978,12 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endCo
     color: #000;
     text-decoration: none;
     width: 100%;
+}
+@media (max-width: 991px) {
+    .contact-content-wrapper h2{
+        font-size: 26px;
+    }
+
 }
 
 .contact-content-wrapper p{
@@ -996,6 +1007,11 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endCo
     margin-bottom: 10px;
     width: 100%;
     max-width: 500px;
+}
+@media (max-width: 576px) {
+    .contact-content-wrapper ul li{
+        margin-bottom: 6px;
+    }
 }
 
 .contact-content-wrapper ul li a{
@@ -1088,6 +1104,13 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endCo
     padding: 20px 26px 26px;
     border: 1px solid rgba(0, 72, 112, 0.071);
     border-radius: 7px;
+}
+@media (max-width: 991px) {
+    .form-inner{
+    margin-top: 30px;
+    padding: 10px 16px 16px;
+    }
+    
 }
 .form-inner p{
     font-size: 14px;
