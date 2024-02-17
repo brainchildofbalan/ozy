@@ -28,8 +28,8 @@
                                 <td width="600">
                                     <a href="#" target="_blank"
                                         style="display: block; width: 600px; margin-left: auto">
-                                        <img src="{{ asset('/assets/admin/images/logo-01.jpg') }}" alt=""
-                                            style="display: block" />
+                                        <img src="https://ozyarabia.com{{ asset('/assets/admin/images/logo-01.jpg') }}"
+                                            alt="" style="display: block" />
                                     </a>
                                 </td>
                             </tr>
@@ -88,7 +88,7 @@
                                             @foreach ($arrayOfObjects as $index => $object)
                                                 <tr>
                                                     <td width="70px" height="70px">
-                                                        <img src="https://ozy.aneesh.website/storage/products/43fkZKzGbE3EyqJrpIHj046pmGos0gwECIIPELp1.jpg"
+                                                        <img src="https://ozyarabia.com{{ Storage::url(explode(', ', $object->images)[0]) }}"
                                                             width="50px" height="50px"
                                                             style="object-fit: contain; width: 50px; height:  50px; padding-left: 10px;"
                                                             alt="">
@@ -164,32 +164,32 @@
                                 <td width="24" style="padding-top: 30px; padding-bottom: 25px">
                                     <a href="https://ozyarabia.com/" target="_blank"
                                         style="display: block; width: 24px; margin-left: auto">
-                                        <img src="{{ asset('/assets/admin/images/wp.png') }}" alt=""
-                                            width="24px" height="24px" />
+                                        <img src="https://ozyarabia.com{{ asset('/assets/admin/images/wp.png') }}"
+                                            alt="" width="24px" height="24px" />
                                     </a>
                                 </td>
                                 <td width="20" style="padding-top: 30px; padding-bottom: 25px"></td>
                                 <td width="24" style="padding-top: 30px; padding-bottom: 25px">
                                     <a href="https://ozyarabia.com/" target="_blank"
                                         style="display: block; width: 24px; margin-left: auto">
-                                        <img src="{{ asset('/assets/admin/images/call.png') }}" alt=""
-                                            width="24px" height="24px" />
+                                        <img src="https://ozyarabia.com{{ asset('/assets/admin/images/call.png') }}"
+                                            alt="" width="24px" height="24px" />
                                     </a>
                                 </td>
                                 <td width="20" style="padding-top: 30px; padding-bottom: 25px"></td>
                                 <td width="24" style="padding-top: 30px; padding-bottom: 25px">
                                     <a href="https://ozyarabia.com/" target="_blank"
                                         style="display: block; width: 24px; margin-left: auto">
-                                        <img src="{{ asset('/assets/admin/images/facebook.png') }}" alt=""
-                                            width="24px" height="24px" />
+                                        <img src="https://ozyarabia.com{{ asset('/assets/admin/images/facebook.png') }}"
+                                            alt="" width="24px" height="24px" />
                                     </a>
                                 </td>
                                 <td width="20" style="padding-top: 30px; padding-bottom: 25px"></td>
                                 <td width="24" style="padding-top: 30px; padding-bottom: 25px">
                                     <a href="https://ozyarabia.com/" target="_blank"
                                         style="display: block; width: 24px; margin-left: auto">
-                                        <img src="{{ asset('/assets/admin/images/instagram.png') }}" alt=""
-                                            width="24px" height="24px" />
+                                        <img src="https://ozyarabia.com{{ asset('/assets/admin/images/instagram.png') }}"
+                                            alt="" width="24px" height="24px" />
                                     </a>
                                 </td>
                                 <td width="20" style="padding-top: 30px; padding-bottom: 25px"></td>

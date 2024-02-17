@@ -298,7 +298,7 @@ class OrderController extends Controller
                   <tr>
                     <td style="width: 100px">
                       <img
-                        src="https://ozy.aneesh.website/assets/front-end/images/header/logo.png"
+                        src="https://ozyarabia.com/assets/front-end/images/header/logo.png"
                         alt=""
                       />
                     </td>
@@ -810,7 +810,7 @@ class OrderController extends Controller
                           <tbody>
                             <tr>
                               <td style="width: 50px; height: 50px">
-                              <img src="https://ozy.aneesh.website' . Storage::url(explode(', ', $object->images)[0]) . '"
+                              <img src="https://ozyarabia.com' . Storage::url(explode(', ', $object->images)[0]) . '"
                               style="width: 40px; height: 40px; object-fit: cover; margin: 5px; border: 1px solid #dedede; padding: 10px;">
                               </td>
                               <td style="width: 350px">

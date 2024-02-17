@@ -87,7 +87,7 @@
                                                 @foreach ($arrayOfObjects as $index => $object)
                                                     <tr>
                                                         <td width="70px" height="70px">
-                                                            <img src="https://ozy.aneesh.website/storage/products/43fkZKzGbE3EyqJrpIHj046pmGos0gwECIIPELp1.jpg"
+                                                            <img src="https://ozyarabia.com/storage/products/43fkZKzGbE3EyqJrpIHj046pmGos0gwECIIPELp1.jpg"
                                                                 width="50px" height="50px"
                                                                 style="object-fit: contain; width: 50px; height:  50px; padding-left: 10px;"
                                                                 alt="">

@@ -71,9 +71,9 @@
                                     <span class="error" id="pinError"></span>
                                 </div>
 
-                                <div class="checkout-form-group">
+                                <div class="checkout-form-group d-none">
                                     <input type="text" name="time" id="availField" class="checkout-form-controls"
-                                        placeholder="Available time">
+                                        placeholder="Available time" value="hidden">
                                     <span class="error" id="availError"></span>
                                 </div>
 

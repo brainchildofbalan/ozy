@@ -18,7 +18,7 @@ class FrontEndOrderController extends Controller
         $data['countryCode'] = $request->input('countryCode');
         $data['email'] = $request->input('email');
         $data['firstName'] = $request->input('firstName');
-        $data['lastName'] = $request->input('lastName');
+        $data['lastName'] = $request->filled('lastName') ? $request->input('lastName') : 'default';;
         $data['phone'] = $request->input('phone');
         $data['postalCode'] = $request->input('postalCode');
         $data['time'] = $request->input('time');

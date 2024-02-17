@@ -354,10 +354,10 @@ function validateForm() {
             document.getElementById('errorNumber').textContent = 'Please enter your number.';
             isValid = false;
         }
-        if (!phoneRegex.test(mobileInput) && mobileInput !== '') {
-            document.getElementById('errorNumber').textContent = 'Please enter a valid mobile number.';
-            isValid = false;
-        }
+        // if (!phoneRegex.test(mobileInput) && mobileInput !== '') {
+        //     document.getElementById('errorNumber').textContent = 'Please enter a valid mobile number.';
+        //     isValid = false;
+        // }
 
         // Validate mobile number --- end
 
@@ -459,10 +459,10 @@ function validateForm() {
             isValid = false;
         }
 
-        if (!emailRegex.test(mailInput) && mailInput !== '') {
-            document.getElementById('mailError').textContent = 'Please enter a valid email address.';
-            isValid = false;
-        }
+        // if (!emailRegex.test(mailInput) && mailInput !== '') {
+        //     document.getElementById('mailError').textContent = 'Please enter a valid email address.';
+        //     isValid = false;
+        // }
 
 
         let itemError = []
@@ -483,6 +483,10 @@ function validateForm() {
 
         // // If form is valid, make a POST request
         if (isValid) {
+            const button = document.querySelector('.checkout-form-btn');
+            button.disabled = true;
+            button.textContent = 'requesting...';
+
             var jsonData = {};
             const formData = new FormData(document.getElementById('checkoutFrom'));
             formData.forEach(function (value, key) {
