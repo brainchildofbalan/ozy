@@ -38,7 +38,7 @@ class FrontEndOrderController extends Controller
 
         // Use the Mail facade to send the email
         Mail::to($request->input('email'))->send($orderSubmittedEmail);
-        Mail::to($request->input('email'))->send($orderSubmittedEmailAdmin);
+        Mail::to('info@ozyarabia.com')->send($orderSubmittedEmailAdmin);
         return response()->json(['status' => 'success']);
     }
 }

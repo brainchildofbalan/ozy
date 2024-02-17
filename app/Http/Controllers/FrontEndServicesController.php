@@ -71,7 +71,7 @@ class FrontEndServicesController extends Controller
         $orderSubmittedEmail = new ServiceEnq($order);
         $orderSubmittedEmailAdmin = new ServiceEnqAdmin($order);
         Mail::to($request->input('email'))->send($orderSubmittedEmail);
-        Mail::to($request->input('email'))->send($orderSubmittedEmailAdmin);
+        Mail::to('info@ozyarabia.com')->send($orderSubmittedEmailAdmin);
 
         return response()->json(['status' => 'success']);
     }
