@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spa Products in UAE, Spa Product Suppliers Abu Dhabi | Ozyarabia</title>
+    <title>Ozyarabia - Wellness products</title>
     <link rel="preload" as="image" href="{{ asset('/assets/front-end/images/header/ozyarabia-logo.png') }}">
     <meta name="description"
         content="Trusted spa products & spa equipment suppliers in  Abu Dhabi, UAE. We offer skin care products, massage oils, beauty products and accessories, disposables, spa furniture and more.  Avail Premium quality spa consumables in reasonable prices in the UAE">
