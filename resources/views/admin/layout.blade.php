@@ -175,6 +175,32 @@
                         </ul>
                     </li>
 
+
+                    <li class="menu-item @if (Str::contains(url()->full(), '/seo')) {{ 'active open' }} @endif">
+                        <a href="http://localhost:8001" class="menu-link menu-toggle">
+                            {{-- <i class="menu-icon tf-icons bx bx-home-circle"></i> --}}
+                            <div>Seo Manager</div>
+                            {{-- <div class="badge bg-danger rounded-pill ms-auto">5</div> --}}
+                        </a>
+
+
+                        <ul class="menu-sub">
+
+
+
+                            <li class="menu-item ">
+                                <a href="{{ route('seo.index') }}" class="menu-link">
+                                    <div>Seo</div>
+                                </a>
+                            </li>
+
+
+
+
+
+                        </ul>
+                    </li>
+
                 </ul>
 
 
@@ -226,7 +252,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="flex-grow-1">
-                                                        <span class="fw-medium d-block">{{ Auth::user()->name }}</span>
+                                                        <span
+                                                            class="fw-medium d-block">{{ Auth::user()->name }}</span>
                                                         <small class="text-muted">{{ Auth::user()->email }}</small>
                                                     </div>
                                                 </div>

@@ -485,7 +485,7 @@ function validateForm() {
         if (isValid) {
             const button = document.querySelector('.checkout-form-btn');
             button.disabled = true;
-            button.textContent = 'requesting...';
+            button.textContent = 'request in process ...';
 
             var jsonData = {};
             const formData = new FormData(document.getElementById('checkoutFrom'));

@@ -14,10 +14,12 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductSubCategoryController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SeoController;
 use App\Http\Controllers\ServiceEnqController;
 use App\Http\Controllers\ServicesCategoryController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TestimonialController;
+use App\Jobs\SaveProductToSeo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -94,6 +96,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('services', ServicesController::class);
         Route::resource('orders', OrderController::class);
         Route::resource('testimonials', TestimonialController::class);
+        Route::resource('seo', SeoController::class);
         Route::resource('services-enq', ServiceEnqController::class);
         Route::get('orders/{id}/generate', [OrderController::class, 'generate'])->name('orders.generateOrder');;
         Route::post('orders/{id}/generate/pdf', [OrderController::class, 'storepdf'])->name('orders.storepdf');;
@@ -109,4 +112,9 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/template', function () {
     return view('emails.order.submitted');
+});
+
+Route::get('/dispatch-job', function () {
+    SaveProductToSeo::dispatch();
+    return "Job dispatched!";
 });
