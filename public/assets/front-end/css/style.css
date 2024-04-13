@@ -3103,3 +3103,79 @@ span.error{
      font-size: 14px;
      line-height:1.4;
 }
+
+.star-wrapper{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+@media (min-width: 991px) {
+    .star-wrapper{
+        max-width: 300px;
+    }
+}
+.star-wrapper .sold-item{
+    font-size: 14px;
+    font-weight: 600;
+}
+.star-wrapper .start-main{
+    padding-left: 5px;
+    display: flex;
+    border: 1px solid #f0f0f0;
+    align-items: center;
+}
+.free-shipping{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    background-color: #FFEFE0;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 991px) {
+    .free-shipping{
+        max-width: 300px;
+    }
+}
+
+.free-shipping p {
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.free-shipping span{
+    font-size: 10px;
+}
+.star-wrapper img{
+    width: 100px;
+    object-fit: contain;
+}
+
+.free-shipping .arrow{
+    width: 10px;
+    height: 10px;
+    display: flex;
+    margin-right: 4px;
+    
+}
+
+.star-wrapper .count-star{
+    background-color: #f0f0f0;
+    padding: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}

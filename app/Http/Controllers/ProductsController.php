@@ -41,6 +41,7 @@ class ProductsController extends Controller
             'images' => 'required|array',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'related_products' => 'required',
+            'star_rating' => 'required',
         ], [
             'name.required' => 'The name field is required.',
             'name.string' => 'The name must be a string.',
@@ -100,6 +101,7 @@ class ProductsController extends Controller
             'quantity_in_stock' => 'required|min:0',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'related_products' => 'required',
+            'star_rating' => 'required',
         ], [
             'name.required' => 'The name field is required.',
             'name.string' => 'The name must be a string.',

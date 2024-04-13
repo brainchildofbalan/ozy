@@ -73,6 +73,19 @@
                     <h3 class="title-wrapper">
                         {{ $products->name }}
                     </h3>
+
+                    <div class="free-shipping">
+                        
+                        <p><span class="arrow"></span>Free shipping on all orders</p>
+                        <span>Limited-time offer</span>
+                    </div>
+                    <div class="star-wrapper">
+                        <div class="sold-item">1.3k Items sold</div>
+                       <div class="start-main">
+                        <img src="{{ asset('/assets/front-end/images/stars/' . (($products->star_rating === '0.0') ? '4.5.png' : $products->star_rating . '.png')) }}"
+                        alt=""> <span class="count-star">{{ ($products->star_rating === '0.0') ? '4.5' : $products->star_rating }}</span>
+                       </div>
+                    </div>
                     <div class="button-wrapper">
                         <button class="product-add-cart-btn" onclick="addToCart('{{ $products->product_code }}')">
                             <span> <img src="{{ asset('/assets/front-end/images/header/cart.svg') }}"

@@ -220,6 +220,20 @@
                         </div>
 
 
+                        {{-- star_rating --}}
+                        <div class="mb-3 row">
+                            <label for="star-rating-range" class="col-md-2 col-form-label">Star Rating</label>
+                            <div class="col-md-10 d-flex align-items-center">
+                                <input class="form-range pe-2" type="range" min="0" max="5" step="0.5"
+                                    id="star-rating-range" name="star_rating" value="{{ old('star_rating') ?? 4.5 }}" oninput="this.nextElementSibling.value = this.value">
+                                <output class="" for="star-rating-range" id="star-rating-output">{{ old('star_rating') ?? 4.5 }}</output>
+                                @error('star_rating')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+
+
 
 
 
