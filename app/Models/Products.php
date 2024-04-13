@@ -23,7 +23,8 @@ class Products extends Model
         'category_id',
         'sub_category_id',
         'url',
-        'star_rating'
+        'star_rating',
+        'sold_out_items'
     ];
 
     protected $casts = [

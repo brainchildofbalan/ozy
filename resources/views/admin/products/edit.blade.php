@@ -244,6 +244,24 @@
                             </div>
                         </div>
 
+
+                        
+
+                        {{-- sold_out_items --}}
+                        <div class="mb-3 row">
+                            <label for="html5-text-input" class="col-md-2 col-form-label">Related products</label>
+                            <div class="col-md-10">
+                                <input class="form-control @error('sold_out_items') is-invalid @enderror" type="text"
+                                    placeholder="Enter related products" name="sold_out_items"
+                                    value="{{ old('sold_out_items', $products->sold_out_items) }}">
+                                @error('sold_out_items')
+                                    <span class="invalid-feedback">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         
 
 

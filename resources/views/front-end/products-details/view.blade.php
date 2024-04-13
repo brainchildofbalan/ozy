@@ -80,7 +80,10 @@
                         <span>Limited-time offer</span>
                     </div>
                     <div class="star-wrapper">
-                        <div class="sold-item">1.3k Items sold</div>
+                        
+
+                        
+                        <div class="sold-item">{{ ($products->sold_out_items === '0') ? '1.3k' : $products->sold_out_items }} Items sold</div>
                        <div class="start-main">
                         <img src="{{ asset('/assets/front-end/images/stars/' . (($products->star_rating === '0.0') ? '4.5.png' : $products->star_rating . '.png')) }}"
                         alt=""> <span class="count-star">{{ ($products->star_rating === '0.0') ? '4.5' : $products->star_rating }}</span>

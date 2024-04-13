@@ -235,6 +235,22 @@
 
 
 
+                        {{-- sold_out_items --}}
+                        <div class="mb-3 row">
+                            <label for="html5-text-input" class="col-md-2 col-form-label">Sold out counter</label>
+                            <div class="col-md-10">
+                                <input class="form-control @error('sold_out_items') is-invalid @enderror" type="text"
+                                    placeholder="Enter Count or anything eg. (1.2k, 1m, 100, etc...)" name="sold_out_items" value="{{ old('sold_out_items') }}">
+                                @error('sold_out_items')
+                                    <span class="invalid-feedback">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+
 
 
 
