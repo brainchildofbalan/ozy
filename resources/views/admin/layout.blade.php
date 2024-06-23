@@ -11,14 +11,7 @@
     <script src="{{ asset('/assets/admin/js/helpers.js') }}"></script>
     <script src="{{ asset('/assets/admin/js/config.js') }}"></script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W2M63JFSME"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-W2M63JFSME');
-</script>
 
 </head>
 

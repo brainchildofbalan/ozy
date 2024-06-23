@@ -27,7 +27,14 @@
     <link rel="stylesheet" href="{{ asset('/assets/front-end/css/bootstrap.min.css') }}?v={{ env('CSS_VERSION') }}">
     <link rel="stylesheet" href="{{ asset('/assets/front-end/css/swiper-bundle.min.css') }}?v={{ env('CSS_VERSION') }}">
     <link rel="stylesheet" href="{{ asset('/assets/front-end/css/style.css') }}?v={{ env('CSS_VERSION') }}">
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2M63JFSME"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-W2M63JFSME');
+    </script>
 </head>
 
 <body>
