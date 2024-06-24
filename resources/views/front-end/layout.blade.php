@@ -1,3 +1,4 @@
+<?php use Illuminate\Support\Facades\Request; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,17 +8,24 @@
     <title>{{ $seo->title ?? 'Ozyarabia - Wellness products' }}</title>
     <link rel="preload" as="image" href="{{ asset('/assets/front-end/images/header/ozyarabia-logo.png') }}">
     <meta name="description"
-        content="Trusted spa products & spa equipment suppliers in  Abu Dhabi, UAE. We offer skin care products, massage oils, beauty products and accessories, disposables, spa furniture and more.  Avail Premium quality spa consumables in reasonable prices in the UAE">
+        content="{{ $seo->description ?? 'Trusted spa products & spa equipment suppliers in  Abu Dhabi, UAE. We offer skin care products, massage oils, beauty products and accessories, disposables, spa furniture and more.  Avail Premium quality spa consumables in reasonable prices in the UAE' }}">
     <meta name="keywords"
-        content="Spa acessories, Spa products, Spa disposables, Spa cosumables, Spa beauty product suppliers, Cosmetic suppliers, Spa massage oils, Luxury spa products online, Spa equipent suppliers, Leading spa and hotel  suppliers, Spa products online, Essential oil suppliers, Spa and skin care products, Salon and spa equipments in UAE, Beauty supply store in UAE,">
-    <link rel="canonical" href="https://www.yourdomain.com/your-page">
+        content="{{ $seo->keywords ?? 'Spa acessories, Spa products, Spa disposables, Spa cosumables, Spa beauty product suppliers, Cosmetic suppliers, Spa massage oils, Luxury spa products online, Spa equipent suppliers, Leading spa and hotel  suppliers, Spa products online, Essential oil suppliers, Spa and skin care products, Salon and spa equipments in UAE, Beauty supply store in UAE,' }}">
+    <link rel="canonical" href="{{ $seo->canonical_url ?? 'https://ozyarabia.com/' }}">
+    <meta name="author" content="{{ $seo->author ?? 'Ozyarabia' }}">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph Tags for Social Sharing -->
-    <meta property="og:title" content="Ozyarabia">
-    <meta property="og:description" content="Spa Products in UAE, Spa Product Suppliers Abu Dhabi">
-    <meta property="og:image" content="URL to an image representing the page">
-    <meta property="og:url" content="https://www.yourdomain.com/your-page">
+    <meta property="og:title" content="{{ $seo->og_title ?? 'Ozyarabia - Wellness products' }}">
+    <meta property="og:description" content="{{ $seo->og_description ?? 'Trusted spa products & spa equipment suppliers in  Abu Dhabi, UAE. We offer skin care products, massage oils, beauty products and accessories, disposables, spa furniture and more.  Avail Premium quality spa consumables in reasonable prices in the UAE' }}">
+    @if (isset($seo) && property_exists($seo, 'image') && $seo->image)
+    <meta property="og:image" content="{{ Request::root() . Storage::url($seo->image) }}">
+@endif
+    <meta property="og:url" content="{{ $seo->og_url ?? 'https://ozyarabia.com/' }}">
+    <meta property="og:locale" content="{{ $seo->locale ?? 'en_GB' }}">
+    <meta property="og:site_name" content="{{ $seo->og_site_name ?? 'ozyarabia' }}">
+    <meta property="og:type" content="{{ $seo->og_type ?? 'website' }}">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="{{ asset('/assets/front-end/images/header/fav.png') }}" type="image/png">
@@ -159,7 +167,8 @@
         </div>
 
     </header>
-    <main>@yield('content')</main>
+   
+    <main>  @yield('content')</main>
     <footer class="footer-wrapper">
 
         <div class="footer-inner">
