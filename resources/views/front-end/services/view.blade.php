@@ -40,23 +40,23 @@
 
 
     {{-- cartegory list start --}}
-    {{-- @if ($url)
+
         <section class="category-wrapper">
             <div class="container">
                 <div class="category-wrapper-main">
                     <div class="category-item">
-                        <a href="/products/{{ $url }}"
-                            class="category-item-link @if ($sub_url === null) active @endif">
-                            <img src="{{ asset('/assets/front-end/images/products/image-product.jpg') }}" alt="">
+                        <a href="/services"
+                            class="category-item-link @if ($url === null) active @endif">
+                            {{-- <img src="{{ asset('/assets/front-end/images/products/image-product.jpg') }}" alt=""> --}}
                             <p> All </p>
                         </a>
                     </div>
                     @foreach ($categories as $category)
                         <div class="category-item">
-                            <a href="/products/{{ $url }}/{{ $category->url }}"
-                                class="category-item-link @if ($sub_url === $category->url) active @endif">
-                                <img src="{{ asset('/assets/front-end/images/products/image-product.jpg') }}"
-                                    alt="">
+                            <a href="/services/{{ $category->url }}"
+                                class="category-item-link @if ($url === $category->url) active @endif">
+                                {{-- <img src="{{ asset('/assets/front-end/images/products/image-product.jpg') }}"
+                                    alt=""> --}}
                                 <p>{{ $category->name }}</p>
                             </a>
                         </div>
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </section>
-    @endif --}}
+
     {{-- cartegory list end --}}
 
 
@@ -78,13 +78,13 @@
     <section class="service-section">
         <div class="container">
             <div class="product-section-wrapper">
-                <div class="product-section-heading">
-                    <h4 class="title-heading font-second">All products</h4>
+                {{-- <div class="product-section-heading"> --}}
+                    {{-- <h4 class="title-heading font-second">All Services</h4> --}}
                     {{-- <a href="/" class="explore-link">
                         <span>Explore products</span>
                         <span class="arrow"></span>
                     </a> --}}
-                </div>
+                {{-- </div> --}}
                 <div class="product-section-list-wrapper row">
                     @if (count($services) > 0)
                         @foreach ($services as $service)
