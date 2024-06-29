@@ -318,7 +318,7 @@ header{
 }
 
 .banner-item{
-    width: 12.5%;
+    width: 14.2857143%;
     display: flex;
     position: relative;
     min-height: 257px;
@@ -375,7 +375,7 @@ header{
     }
 
     .banner-section:hover .banner-item:not(:hover) {
-        width: calc(82%/7);
+        width: calc(82%/6);
     }
     .banner-section:hover .banner-item:hover {
         width: 18%;
