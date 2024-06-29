@@ -19,7 +19,7 @@
                     <tbody class="table-border-bottom-0">
                         @foreach ($categories as $category)
                             <tr>
-                                <td class="fw-bold text-black">{{ $category->name }}</td>
+                                <td class="fw-bold text-black">{{ $category->url }}</td>
                                 <td class="fw-medium text-black">{{ $category->created_at }}</td>
                                 <td class="fw-medium">
                                     <div class="dropdown">
