@@ -2422,7 +2422,23 @@ textarea.checkout-form-controls{
 
 
 .service-description{
-    
+    line-height: 1.45;
+}
+.service-description ol,
+.service-description ul{
+    padding-left: 20px;
+}
+
+.service-description ul li{
+    margin-bottom: 10px;
+}
+
+.service-description ul li:last-child{
+    margin-bottom: 0px;
+}
+
+.service-description strong{
+    font-weight: 700;
 }
 
 
@@ -2466,7 +2482,7 @@ textarea.checkout-form-controls{
   }
 
   .service-description > * + *{
-    margin-top: 10px;
+    margin-top: 20px;
   }
   .enq-button{
     width: max-content;
