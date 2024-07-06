@@ -46,17 +46,28 @@ class FrontEndServicesController extends Controller
 
         $get_category_id = ServicesCategory::where('url', $url)->first();
         $get_sub_category_id = ProductSubCategory::where('url', $sub_url)->first();
-        $products = Services::where('category_id', $get_category_id->category_id . ',' . $get_category_id->name)->where('sub_category_id', $get_sub_category_id->category_id . ',' . $get_sub_category_id->name)->orderBy('id', 'desc')->get();
-        $categories = ProductSubCategory::where('relative_category_id', $get_category_id->category_id . ',' . $get_category_id->name)->orderBy('id', 'asc')->get();
-        // $categoriesMain = ServicesCategory::all();
-        $categoriesMain = Menu::orderBy('order')->get();
-        return view('front-end.products.view', compact('products', 'categories', 'categoriesMain', 'url', 'sub_url'));
+        if ($get_category_id && $get_sub_category_id ) {
+            $products = Services::where('category_id', $get_category_id->category_id . ',' . $get_category_id->name)->where('sub_category_id', $get_sub_category_id->category_id . ',' . $get_sub_category_id->name)->orderBy('id', 'desc')->get();
+            $categories = ProductSubCategory::where('relative_category_id', $get_category_id->category_id . ',' . $get_category_id->name)->orderBy('id', 'asc')->get();
+            // $categoriesMain = ServicesCategory::all();
+            $categoriesMain = Menu::orderBy('order')->get();
+            return view('front-end.products.view', compact('products', 'categories', 'categoriesMain', 'url', 'sub_url'));
+        }else{
+            return view('front-end.empty.view');
+        }
+        
+        
     }
 
     public function fetchSingle($url, $services)
     {
         $services = Services::where('url', $services)->first();
-        return view('front-end.service-details.view', compact('services'));
+        if ($services) {
+            return view('front-end.service-details.view', compact('services'));
+        }else{
+            return view('front-end.empty.view');
+        }
+        
     }
 
     public function saveEnq(Request $request)

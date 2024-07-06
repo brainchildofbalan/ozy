@@ -3237,7 +3237,7 @@ span.error{
     margin-bottom: 24px;
 }
 
-.empty-inner a{
+.empty-inner button{
     width: auto;
     display: flex;
     align-items: center;

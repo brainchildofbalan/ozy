@@ -31,11 +31,16 @@ class FrontEndProductController extends Controller
     {
         $sub_url = null;
         $get_category_id = ProductCategory::where('url', $url)->first();
-        $products = Products::where('category_id', $get_category_id->category_id . ',' . $get_category_id->name)->orderBy('id', 'desc')->get();
-        $categories = ProductSubCategory::where('relative_category_id', $get_category_id->category_id . ',' . $get_category_id->name)->orderBy('id', 'asc')->get();
-        // $categoriesMain = ProductCategory::all();
-        $categoriesMain = Menu::orderBy('order')->get();
-        return view('front-end.products.view', compact('products', 'categories', 'categoriesMain', 'url', 'sub_url'));
+        if ($get_category_id) {
+            $products = Products::where('category_id', $get_category_id->category_id . ',' . $get_category_id->name)->orderBy('id', 'desc')->get();
+            $categories = ProductSubCategory::where('relative_category_id', $get_category_id->category_id . ',' . $get_category_id->name)->orderBy('id', 'asc')->get();
+            // $categoriesMain = ProductCategory::all();
+            $categoriesMain = Menu::orderBy('order')->get();
+            return view('front-end.products.view', compact('products', 'categories', 'categoriesMain', 'url', 'sub_url'));
+        }else{
+            return view('front-end.empty.view');
+        }
+        
     }
 
     public function SubCategory($url, $sub_url)
@@ -43,11 +48,16 @@ class FrontEndProductController extends Controller
 
         $get_category_id = ProductCategory::where('url', $url)->first();
         $get_sub_category_id = ProductSubCategory::where('url', $sub_url)->first();
-        $products = Products::where('category_id', $get_category_id->category_id . ',' . $get_category_id->name)->where('sub_category_id', $get_sub_category_id->category_id . ',' . $get_sub_category_id->name)->orderBy('id', 'desc')->get();
-        $categories = ProductSubCategory::where('relative_category_id', $get_category_id->category_id . ',' . $get_category_id->name)->orderBy('id', 'asc')->get();
-        // $categoriesMain = ProductCategory::all();
-        $categoriesMain = Menu::orderBy('order')->get();
-        return view('front-end.products.view', compact('products', 'categories', 'categoriesMain', 'url', 'sub_url'));
+        if ($get_category_id && $get_sub_category_id) {
+            $products = Products::where('category_id', $get_category_id->category_id . ',' . $get_category_id->name)->where('sub_category_id', $get_sub_category_id->category_id . ',' . $get_sub_category_id->name)->orderBy('id', 'desc')->get();
+            $categories = ProductSubCategory::where('relative_category_id', $get_category_id->category_id . ',' . $get_category_id->name)->orderBy('id', 'asc')->get();
+            // $categoriesMain = ProductCategory::all();
+            $categoriesMain = Menu::orderBy('order')->get();
+            return view('front-end.products.view', compact('products', 'categories', 'categoriesMain', 'url', 'sub_url'));
+        }else{
+            return view('front-end.empty.view');
+        }
+        
     }
 
     public function fetchAll($id)
@@ -61,20 +71,25 @@ class FrontEndProductController extends Controller
     public function fetchSingle($url, $sub_url, $product)
     {
         $products = Products::where('url', $product)->first();
-        $related = Products::where('id', '>', $products->id)
-            ->orderBy('id')
-            ->limit(6)
-            ->get();
-
-        // Check if $related is empty
-        if ($related->isEmpty()) {
-            $related = Products::where('id', '<', $products->id)
-                ->orderByDesc('id') // Order by ID in descending order to get items with IDs less than $products->id
+        if ($products) {
+            $related = Products::where('id', '>', $products->id)
+                ->orderBy('id')
                 ->limit(6)
                 ->get();
+
+            // Check if $related is empty
+            if ($related->isEmpty()) {
+                $related = Products::where('id', '<', $products->id)
+                    ->orderByDesc('id') // Order by ID in descending order to get items with IDs less than $products->id
+                    ->limit(6)
+                    ->get();
+            }
+
+
+            return view('front-end.products-details.view', compact('products', 'related'));
+        }else{
+            return view('front-end.empty.view');
         }
-
-
-        return view('front-end.products-details.view', compact('products', 'related'));
+        
     }
 }

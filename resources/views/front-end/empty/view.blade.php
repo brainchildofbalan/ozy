@@ -10,9 +10,9 @@
             <h1>404</h1>
            <h4>Page not found</h4>
            <p>Oops! The page for dose not exist. It might have been moved or deleted.</p>
-           <a href="#">
+           <button onclick="window.history.back();">
                 Go Back
-           </a>
+           </button>
            </div>
         </div>
     </div>
