@@ -3195,3 +3195,63 @@ span.error{
     align-items: center;
     margin-left: 10px;
 }
+
+/* empty pages style */
+.empty{
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-inner{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-inner h1{
+    font-size: 100px;
+    font-weight: 300;
+    line-height: normal;
+    margin-bottom: 8px;
+    color: #00476f;
+}
+
+.empty-inner h4{
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+.empty-inner p{
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 360px;
+    text-align: center;
+    opacity: .8;
+    margin-bottom: 24px;
+}
+
+.empty-inner a{
+    width: auto;
+    display: flex;
+    align-items: center;
+    background-color: #00476f;
+    border: none;
+    color: #fff;
+    flex: 1;
+    font-size: 14px;
+    line-height: 1;
+    text-decoration: none;
+    justify-content: center;
+    border-radius: 3px;
+    overflow: hidden;
+    min-height: 35px;
+    width: 130px;
+    cursor: pointer;
+}

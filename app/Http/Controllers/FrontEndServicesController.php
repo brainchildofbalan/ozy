@@ -29,11 +29,16 @@ class FrontEndServicesController extends Controller
     {
         $sub_url = null;
         $get_category_id = ServicesCategory::where('url', $url)->first();
-        $services = Services::where('category_id', $get_category_id->category_id . ',' . $get_category_id->name)->orderBy('id', 'desc')->get();
-        $categories = ServicesCategory::all();
-        // $categoriesMain = ServicesCategory::all();
-        $categoriesMain = Menu::orderBy('order')->get();
-        return view('front-end.services.view', compact('services', 'categories', 'categoriesMain', 'url', 'sub_url'));
+        if ($get_category_id) {
+            $services = Services::where('category_id', $get_category_id->category_id . ',' . $get_category_id->name)->orderBy('id', 'desc')->get();
+            $categories = ServicesCategory::all();
+            // $categoriesMain = ServicesCategory::all();
+            $categoriesMain = Menu::orderBy('order')->get();
+            return view('front-end.services.view', compact('services', 'categories', 'categoriesMain', 'url', 'sub_url'));
+        }else{
+            return view('front-end.empty.view');
+        }
+        
     }
 
     public function SubCategory($url, $sub_url)
