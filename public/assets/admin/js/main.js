@@ -68,7 +68,7 @@ if (document.getElementById('description')) {
             ['bold', 'underline', 'italic'],
             ['removeFormat'],
             ['outdent', 'indent'],
-            ['align', 'list'],
+            ['align', 'list', 'link'],
             ['table'],
             ['fullScreen', 'showBlocks']
         ],
@@ -87,7 +87,7 @@ if (document.getElementById('description1')) {
             ['bold', 'underline', 'italic'],
             ['removeFormat'],
             ['outdent', 'indent'],
-            ['align', 'list'],
+            ['align', 'list', 'link'],
             ['table'],
             ['fullScreen', 'showBlocks']
         ],
