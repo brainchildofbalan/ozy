@@ -48,7 +48,17 @@
                                 @foreach (explode(', ', $products->images) as $image)
                                     <div class="swiper-slide">
                                         <div class="image-wrapper-slider">
-                                            <img src="{{ Storage::url($image) }}" alt="{{ $products->name }}">
+                                            <?php
+                                            
+                                            // Check if the pattern exists before processing
+                                            if (preg_match('/^products\/(.*?)_ozy/', $image, $matches)) {
+                                                $extracted = str_replace('-', ' ', $matches[1]);
+                                            } else {
+                                                $extracted = ''; // Or handle the case when the pattern is not found
+                                            }
+                                            
+                                            ?>
+                                            <img src="{{ Storage::url($image) }}" alt="{{ $extracted }}">
                                         </div>
                                     </div>
                                 @endforeach
@@ -75,19 +85,21 @@
                     </h3>
 
                     <div class="free-shipping">
-                        
+
                         <p><span class="arrow"></span>Free shipping on all orders</p>
                         <span>Limited-time offer</span>
                     </div>
                     <div class="star-wrapper">
-                        
 
-                        
-                        <div class="sold-item">{{ ($products->sold_out_items === '0') ? '1.3k' : $products->sold_out_items }} Items sold</div>
-                       <div class="start-main">
-                        <img src="{{ asset('/assets/front-end/images/stars/' . (($products->star_rating === '0.0') ? '4.5.png' : $products->star_rating . '.png')) }}"
-                        alt=""> <span class="count-star">{{ ($products->star_rating === '0.0') ? '4.5' : $products->star_rating }}</span>
-                       </div>
+
+
+                        <div class="sold-item">
+                            {{ $products->sold_out_items === '0' ? '1.3k' : $products->sold_out_items }} Items sold</div>
+                        <div class="start-main">
+                            <img src="{{ asset('/assets/front-end/images/stars/' . ($products->star_rating === '0.0' ? '4.5.png' : $products->star_rating . '.png')) }}"
+                                alt=""> <span
+                                class="count-star">{{ $products->star_rating === '0.0' ? '4.5' : $products->star_rating }}</span>
+                        </div>
                     </div>
                     <div class="button-wrapper">
                         <button class="product-add-cart-btn" onclick="addToCart('{{ $products->product_code }}')">
@@ -138,9 +150,12 @@
                                         class="product-links-wrapper">
                                         <div class="product-image-wrapper">
 
-
+                                            <?php
+                                            $extracted = preg_replace('/^products\/(.*?)_ozy.*$/', '$1', explode(', ', $product->images)[0]);
+                                            $extracted = str_replace('-', ' ', $extracted);
+                                            ?>
                                             <img data-src="{{ Storage::url(explode(', ', $product->images)[0]) }}"
-                                                alt="{{ $product->name }}" loading="lazy" class="lazyload lazy-class">
+                                                alt="{{ $extracted }}" loading="lazy" class="lazyload lazy-class">
                                         </div>
                                         <div class="product-text-wrapper">
                                             <span class="item-left">{{ intval($product->quantity_in_stock) }} Left</span>

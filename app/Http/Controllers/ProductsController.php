@@ -62,11 +62,22 @@ class ProductsController extends Controller
         $imagePaths = [];
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
-                // Store each image in the 'public/images' directory
-                $imagePath = $image->store('products', 'public');
+                // Get the original filename
+                $originalName = $image->getClientOriginalName();
+                $filename = pathinfo($originalName, PATHINFO_FILENAME);
+                $extension = $image->getClientOriginalExtension();
+                $filenameSingle = str_replace(' ', '-', $filename);
+                // Create a unique filename by appending a unique identifier
+                $uniqueFilename = $filenameSingle . '_' . time() . '.' . $extension;
+
+                // Store the file in the 'public/products' directory with the unique filename
+                $imagePath = $image->storeAs('products', $uniqueFilename, 'public');
+
+                // Store the unique filename path for further processing
                 $imagePaths[] = $imagePath;
             }
         }
+
         $data['url'] = Str::slug($request->input('name'));
         $data['images'] = implode(', ', $imagePaths);
         $data['product_code'] = Uuid::uuid4()->toString();
@@ -104,7 +115,7 @@ class ProductsController extends Controller
             'related_products' => 'required',
             'star_rating' => 'required',
             'sold_out_items' => 'required',
-            
+
         ], [
             'name.required' => 'The name field is required.',
             'name.string' => 'The name must be a string.',
@@ -136,8 +147,18 @@ class ProductsController extends Controller
 
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
-                    // Store each image in the 'public/images' directory
-                    $imagePath = $image->store('products', 'public');
+                    // Get the original filename
+                    $originalName = $image->getClientOriginalName();
+                    $filename = pathinfo($originalName, PATHINFO_FILENAME);
+                    $extension = $image->getClientOriginalExtension();
+                    $filenameSingle = str_replace(' ', '-', $filename);
+                    // Create a unique filename by appending a unique identifier
+                    $uniqueFilename = $filenameSingle . '_ozy' . time() . '.' . $extension;
+
+                    // Store the file in the 'public/products' directory with the unique filename
+                    $imagePath = $image->storeAs('products', $uniqueFilename, 'public');
+
+                    // Store the unique filename path for further processing (e.g., saving in the database)
                     $imagePathsUpdate[] = $imagePath;
                 }
             }

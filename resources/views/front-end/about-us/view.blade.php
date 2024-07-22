@@ -82,9 +82,19 @@
                                         class="product-links-wrapper">
                                         <div class="product-image-wrapper">
 
-
+                                            <?php
+                                            $image = explode(', ', $product->images)[0];
+                                            
+                                            // Check if the pattern exists before processing
+                                            if (preg_match('/^products\/(.*?)_ozy/', $image, $matches)) {
+                                                $extracted = str_replace('-', ' ', $matches[1]);
+                                            } else {
+                                                $extracted = ''; // Or handle the case when the pattern is not found
+                                            }
+                                            
+                                            ?>
                                             <img data-src="{{ Storage::url(explode(', ', $product->images)[0]) }}"
-                                                alt="{{ $product->name }}" loading="lazy" class="lazyload lazy-class">
+                                                alt="{{ $extracted }}" loading="lazy" class="lazyload lazy-class">
                                         </div>
                                         <div class="product-text-wrapper">
                                             <span class="item-left">{{ intval($product->quantity_in_stock) }} Left</span>
